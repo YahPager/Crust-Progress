@@ -1,5 +1,20 @@
 # Crust Progress Journal
 
+## October 27, 2026 - First native Crust programs
+
+**Implemented:** checking, building, and running small `.cru` programs within
+the first scalar language subset.
+
+**Verified:** native execution on Windows x64 with both unoptimized and
+optimized output. Checks cover program results, rejection of invalid programs,
+checked integer arithmetic, and source-located arithmetic failures.
+
+**Remaining:** the full language, ownership checking, generated interfaces,
+Crust interoperability in all six call directions, and BTW audio execution.
+This milestone does not establish application performance or a comparative
+speed advantage. No compiler download or application demonstration is available
+yet.
+
 ## October 27, 2026 - Toolchain foundation
 
 **Implemented:** developer checks for the required native tools.

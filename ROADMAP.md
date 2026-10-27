@@ -7,7 +7,7 @@ promises.
 | Milestone | Intended result | Status |
 |---|---|---|
 | Developer toolchain foundation | Check required native tools and run a mixed C/C++/Rust native-toolchain smoke test | Verified, limited to the Windows development environment |
-| Native compiler | Compile and run small Crust programs on Windows x64 | Planned |
+| Native compiler | Compile and run small Crust programs on Windows x64 | First scalar subset verified; full language remains planned |
 | C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Planned |
 | Checked resources | Demonstrate compiler checks and predictable resource cleanup | Planned |
 | BTW application proof | Process recorded audio in a useful Broadcast: The Works demonstration | Planned |
