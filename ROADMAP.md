@@ -1,10 +1,12 @@
 # Crust Roadmap
 
-This roadmap describes the initial direction. Milestones are not completed
-features or release-date promises.
+This roadmap describes the initial direction. Status applies only to the
+stated result; planned milestones are not completed features or release-date
+promises.
 
 | Milestone | Intended result | Status |
 |---|---|---|
+| Developer toolchain foundation | Check required native tools and run a mixed C/C++/Rust native-toolchain smoke test | Verified, limited to the Windows development environment |
 | Native compiler | Compile and run small Crust programs on Windows x64 | Planned |
 | C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Planned |
 | Checked resources | Demonstrate compiler checks and predictable resource cleanup | Planned |

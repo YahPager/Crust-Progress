@@ -8,11 +8,16 @@ Maintained by [YahPager](https://github.com/YahPager).
 
 ## Current status
 
-**Design direction agreed; compiler implementation has not started.**
+**Developer toolchain foundation implemented; Crust source compilation remains planned.**
 
-No working Crust compiler, native interoperability, or Broadcast: The Works
-(BTW) audio integration has been verified. The first application goal is a
-recorded-audio demonstration for BTW.
+Developer toolchain checks are implemented. A native-toolchain smoke test has
+verified that C, C++, and Rust components can be compiled, linked, and executed
+together in the Windows development environment.
+
+That test does not compile `.cru` programs or validate generated interfaces.
+Crust source compilation, ownership checking, symmetric Crust interoperability,
+and Broadcast: The Works (BTW) audio integration remain planned. The first
+application goal is a recorded-audio demonstration for BTW.
 
 ## Follow progress
 

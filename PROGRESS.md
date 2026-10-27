@@ -1,6 +1,19 @@
 # Crust Progress Journal
 
-## October 27, 2026
+## October 27, 2026 - Toolchain foundation
+
+**Implemented:** developer checks for the required native tools.
+
+**Verified:** a native-toolchain smoke test compiled, linked, and executed C,
+C++, and Rust components together in the Windows development environment.
+This result is limited to the native-toolchain fixture. It does not compile
+Crust source or exercise generated Crust interfaces.
+
+**Remaining:** `.cru` compilation, ownership checking, generated adapters,
+Crust interoperability in all six call directions, and BTW audio execution.
+No compiler download or application demonstration is available yet.
+
+## October 27, 2026 - Design direction
 
 **Design direction agreed; compiler implementation has not started.**
 
