@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/branding/crust-logo-transparent.png" alt="Crust logo" width="420">
+  <img src="assets/branding/crust-logo-transparent 1163x387.png" alt="Crust logo" width="420">
 </p>
 
 # Crust Progress
