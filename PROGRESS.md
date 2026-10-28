@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Compiler optimizations checked against safe references
+
+**Verified:** the recent loop and recursion optimizations are now checked
+against ordinary, fully checked versions of the same code. A generated test
+runs 371 fixed cases at two optimization levels. They include empty and
+single-step loops, block-size boundaries, values at numeric limits, and runs
+where two different errors compete. For every case, the optimized code
+matches the checked version in:
+- its result;
+- the data it wrote before any error;
+- which error it reported first;
+- where in the source that error occurred.
+
+Two deliberately introduced compiler bugs were both caught. The full compiler
+suite (155 tests), the interoperability suites, the framing fixtures and
+fresh performance campaigns all passed. No speed regression was found.
+
+**Remaining work:** the next phase measures memory use over the full
+lifecycle, including preparation, temporary bursts, reset and release.
+
 ## October 28, 2026 - Public-readiness checkpoint
 
 **Planned:** ZIP/prerelease packaging is deferred while development continues.
