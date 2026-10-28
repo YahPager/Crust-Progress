@@ -1,5 +1,37 @@
 # Crust Progress Journal
 
+## October 28, 2026 - SDRTW offline framing times and memory
+
+**Verified:** the bounded SDRTW v3 offline framing component passed **73
+independent native cases and 146 actual Crust cases** at optimization levels
+0 and 2, including invalid-input, reset and cleanup checks. Measurements ran
+on Windows x64 with an Intel Core Ultra 7 265K using synthetic input.
+
+Each stream contains 4,320 dibits, representing **720 ms of radio data**.
+The table reports medians of average processing times from nine process runs
+per case, with 128 measured streams and eight warmups in each run:
+
+| Feed size | Crust processing time | C++ control doing the same work |
+|---|---:|---:|
+| 256 dibits | **0.02677 ms/stream** | 0.02472 ms/stream |
+| One dibit | **0.54506 ms/stream** | 0.50414 ms/stream |
+
+The C++ orchestration control uses the same work and timed boundary. This is
+not a claim of identical compiler settings. Crust took about **8% longer**
+in this measurement. These averages are not worst-case or live-radio latency.
+
+With 256-dibit feeds, median Crust **private-memory snapshots** were
+**1.051 MiB ready, 1.063 MiB after processing and 1.051 MiB after cleanup**.
+These are process snapshots, not exact live-allocation counts or a claim of
+returning all memory to the pre-setup footprint. The Rust collector recorded
+**zero processing allocations**. The native decoder allocated separately;
+its allocations were released during cleanup, and all lifecycle checks passed.
+
+**Limits and remaining work:** this demonstrates an offline framing component
+with synthetic data. Full receiver functionality, live-radio operation and
+broader compatibility remain pending. Source, internal evidence and binaries
+remain private.
+
 ## October 28, 2026 - Memory strategy chosen from full-lifecycle measurements
 
 **Verified:** on Windows x64, native Rust, C++ and Goose prototypes were
@@ -9,7 +41,7 @@ buffers, handles temporary bursts of 1, 16 or 64 MiB followed by ordinary
 of 324 runs each checked:
 - every output;
 - 64-byte alignment;
-- that no allocation happens during ordinary processing;
+- zero ordinary-processing allocations in the instrumented Rust/C++ controls;
 - where measurable, that memory returns exactly to its starting level.
 
 **Decided:**
@@ -26,7 +58,8 @@ of 324 runs each checked:
 **Limits and remaining work:** these are native prototypes rather than
 Crust-generated code; Crust's own routing path was re-measured separately
 and is unchanged. Some allocation counts in the Goose control are not
-observable. Other routing layouts and block sizes remain to be measured.
+observable; Goose allocation counts remain unknown. Other routing layouts
+and block sizes remain to be measured.
 
 ## October 28, 2026 - Compiler optimizations checked against safe references
 

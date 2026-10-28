@@ -21,6 +21,21 @@ Actual Crust application runs passed with both unoptimized and optimized
 output, including malformed-input, Unicode-path, native-library lifecycle,
 and cleanup checks.
 
+An October 28 measurement on Windows x64 (Intel Core Ultra 7 265K) compared
+Crust with a C++ orchestration control doing the same work over the same timed
+boundary. Each synthetic stream represents **720 ms of radio data**:
+
+| Feed size | Crust processing time | C++ control doing the same work |
+|---|---:|---:|
+| 256 dibits | **0.02677 ms/stream** | 0.02472 ms/stream |
+| One dibit | **0.54506 ms/stream** | 0.50414 ms/stream |
+
+These are medians of average processing times from nine runs per case, each
+with 128 measured streams and eight warmups, rather than worst-case latency.
+Crust took about **8% longer** than the C++ control. All **73 native and 146
+Crust cases** passed, including invalid-input, reset and cleanup checks.
+See the [measurement details and memory results](PROGRESS.md#october-28-2026---sdrtw-offline-framing-times-and-memory).
+
 This is a bounded offline framing proof. It does not establish a Crust-native
 P25 decoder, voice or security correctness, live hardware operation, a full
 SDRTW v3 receiver rebuild, or host compatibility.
@@ -49,8 +64,9 @@ Broader SDR: The Works v3 functionality and added features remain planned.
 The selected proof does not establish a complete application or live receiver.
 
 The full language, broader compatibility, clean-environment packaging, and
-broader performance evaluation remain planned. No comparative speed or memory
-advantage has been established.
+broader performance evaluation remain planned. Published performance results
+apply to the named workloads and measured boundaries; they do not establish
+a general language-wide speed or memory advantage.
 
 ## Follow progress
 
