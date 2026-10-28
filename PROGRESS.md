@@ -1,5 +1,33 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Memory strategy chosen from full-lifecycle measurements
+
+**Verified:** on Windows x64, native Rust, C++ and Goose prototypes were
+measured over the whole life of an audio workload. Each run prepares its
+buffers, handles temporary bursts of 1, 16 or 64 MiB followed by ordinary
+256-frame stereo blocks, and releases everything. Two independent campaigns
+of 324 runs each checked:
+- every output;
+- 64-byte alignment;
+- that no allocation happens during ordinary processing;
+- where measurable, that memory returns exactly to its starting level.
+
+**Decided:**
+- Caller-prepared buffers stay the default. Temporary scoped scratch
+  storage was 1-5% slower in every implementation and offered no benefit, so
+  no arena feature is added to Crust.
+- Large bursts are a declared tradeoff. Keeping their memory makes repeated
+  bursts roughly 3-9 times cheaper to set up but leaves it in use; releasing
+  it returns the process to its small starting footprint at a small,
+  measured cost.
+- The pinned Goose release keeps its peak memory either way. Newer Goose
+  versions were not tested.
+
+**Limits and remaining work:** these are native prototypes rather than
+Crust-generated code; Crust's own routing path was re-measured separately
+and is unchanged. Some allocation counts in the Goose control are not
+observable. Other routing layouts and block sizes remain to be measured.
+
 ## October 28, 2026 - Compiler optimizations checked against safe references
 
 **Verified:** the recent loop and recursion optimizations are now checked
