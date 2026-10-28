@@ -1,5 +1,44 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Checked recursion: lower times, C target still open
+
+**Verified:** a compiler optimization for eligible recursive functions keeps
+checked arithmetic and failure order while reducing Fibonacci n=30 by about
+12-13% against the previous compiler path. Benchmark inputs, native controls,
+compiler settings and timing boundaries are unchanged. All 161 compiler tests
+pass, including 164 new differential recursion cases with both unoptimized
+and optimized output. Routing and the offline SDRTW framing checks pass.
+
+Two complete campaigns retain all five languages, sizes and profiles, passing
+180 cross-language controls each. Fibonacci times are in microseconds:
+
+| Run | Crust | C | Paired Crust/C ratio | 95% interval |
+|---|---:|---:|---:|---|
+| Fresh previous compiler | 1,349.6 | 1,269.0 | 1.0630 | 1.0464-1.1286 |
+| Updated compiler, campaign 1 | 1,177.4 | 1,266.0 | 0.9302 | 0.9105-1.0117 |
+| Updated compiler, campaign 2 | 1,179.4 | 1,263.7 | 0.9380 | 0.9182-1.0019 |
+
+The Crust medians are lower than C, but both intervals cross 1. **Strict C
+parity is unconfirmed.** No sample was dropped. The median paired ratio need
+not equal the ratio of the separate time medians.
+
+A separate follow-up pinned every implementation to logical CPU 0 on the
+same Windows x64 Intel Core Ultra 7 265K. Under that setting, the previous
+compiler measured 1,357.9 microseconds. Two complete updated-compiler
+campaigns measured 1,184.2 and 1,186.0, versus C's 1,275.5 and 1,277.9.
+Their paired intervals were 0.8758-0.9533 and 0.9033-1.0016. The second
+still crosses 1; pinning does not eliminate timing variation or close the
+target. These results are kept separate from the original protocol above.
+
+Only N-Queens meets the largest-size C target twice in each protocol. Sum,
+blur, particles and matrix multiplication remain open too. The
+[five-language comparison table](README.md#measured-comparisons-across-languages)
+shows the second original-protocol campaign. These prepared-kernel results
+exclude setup and cleanup; they do not establish a language-wide ranking.
+Smaller N-Queens times varied; an immediate old/new paired check did not
+confirm the apparent slowdown. No blanket absence of regressions is claimed.
+Implementation and detailed development evidence remain private.
+
 ## October 28, 2026 - C comparison, phase 2
 
 **Verified:** removing redundant work from checked signed-64-bit conversions

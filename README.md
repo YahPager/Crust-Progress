@@ -75,25 +75,29 @@ and Goose** on Windows x64. The Goose control is pinned to v2026.3; newer
 releases were not measured. Lower times are better.
 
 The table shows median times at the largest tested size of each workload, in
-**microseconds per complete workload**, from the second final C-paired campaign:
+**microseconds per complete workload**, from the second recursion-update
+campaign using the original scheduling protocol:
 
 | Workload | C | C++ | Rust | Crust | Goose |
 |---|---:|---:|---:|---:|---:|
-| Sum, 1,048,576 elements | 1,229.1 | 1,247.7 | 2,478.8 | 1,650.7 | 3,267.1 |
-| Image blur, width 512 | 421.3 | 422.7 | 3,992.5 | 434.3 | 5,149.2 |
-| Particles, 32,768 | 866.4 | 866.1 | 1,113.1 | 898.6 | 916.0 |
-| Matrix multiplication, width 128 | 224.7 | 225.4 | 249.7 | 243.7 | 959.2 |
-| N-Queens, 12 | 11,618.0 | 11,632.0 | 11,130.0 | 10,955.0 | 11,468.0 |
-| Fibonacci, 30 | 1,264.3 | 1,265.0 | 2,252.3 | 1,345.7 | 1,429.3 |
+| Sum, 1,048,576 elements | 1,266.6 | 1,364.1 | 2,505.4 | 1,558.4 | 3,134.7 |
+| Image blur, width 512 | 422.2 | 421.8 | 4,005.0 | 431.4 | 5,141.1 |
+| Particles, 32,768 | 866.4 | 866.2 | 1,106.6 | 894.6 | 917.8 |
+| Matrix multiplication, width 128 | 223.0 | 225.8 | 250.5 | 243.1 | 955.4 |
+| N-Queens, 12 | 11,685.3 | 11,699.6 | 11,181.4 | 10,984.1 | 11,522.1 |
+| Fibonacci, 30 | 1,263.7 | 1,267.4 | 2,257.8 | 1,179.4 | 1,428.4 |
 
 All five builds use matched loop-unswitching and alignment settings. These
 prepared kernels include their result digest but exclude allocation, setup
 and cleanup. Language-specific checks and call boundaries still differ.
 Both final campaigns passed 180 cross-language controls. C and Crust run as
 adjacent alternating pairs. Only N-Queens meets the strict C target in both
-campaigns: its upper 95% time-ratio endpoint is at most 1.00. Blur is
-inconclusive; the other largest cases remain slower than C. Large-sum timing
-is variable, so no precise improvement is claimed there. These are workload
+campaigns: its upper 95% time-ratio endpoint is at most 1.00. Fibonacci is
+about 12-13% faster than its old compiler path, but lower medians than C do
+not confirm parity: its two Crust/C intervals are 0.9105-1.0117 and
+0.9182-1.0019. A separate fixed-CPU follow-up also leaves that target open.
+The other four C targets remain open. Large-sum timing is variable, so no
+precise improvement is claimed there. These are workload
 measurements, not an overall ranking or a reproduction of any language's
 original benchmark suite. Historical results remain in the progress journal.
 
