@@ -1,5 +1,28 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Broader prepared-kernel comparisons
+
+**Implemented:** a private comparison suite now covers sum, image blur,
+particles, matrix multiplication, N-Queens and recursive Fibonacci, with
+C, C++, Rust and pinned Goose controls at three sizes.
+
+**Verified:** on Windows x64, 180 cross-language controls and full-output
+checks passed, along with all 149 compiler tests. The measurements retain
+8,100 timing samples and compare both existing build defaults and an equal
+loop-unswitching setting. At the largest sizes with that setting matched,
+Crust used about 28% less time for sum, 35% less for blur, 75% less for matrix
+multiplication and 3% less for N-Queens than the Goose control. Particles was
+inconclusive; Crust took about 56% more time for Fibonacci. C/C++ were faster
+than Crust on several numeric cases.
+
+**Limits and remaining work:** these are prepared kernels with changed
+representations and timing boundaries, not reproductions of Goose's published
+whole-process suite or evidence of a language-wide advantage. Nine paired
+repetitions per comparison give screening evidence; near-ties need independent
+confirmation. Allocation, setup and cleanup are outside the kernel timer.
+Faithful calc, LRU, scene and library-dependent comparisons remain open. No
+compiler optimization or safety rule changed for this experiment.
+
 ## October 28, 2026 - Prepared routing now faster than the Goose control
 
 **Implemented:** optimized Crust builds now split loops on conditions that do
