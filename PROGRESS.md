@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Prepared routing moved closer
+
+**Implemented:** failure-only error construction stays off the successful
+prepared-buffer path. A pure early return lowers to an ordered choice, so
+clipping still preserves non-numeric values and infinities. Exclusive output
+buffers are marked as not overlapping their inputs.
+
+**Verified:** on Windows x64, a fresh three-repetition screen of the 256-frame
+reused buffer leaves Crust about 20% above the fastest prepared native control.
+That misses the 5% target, so the paired acceptance campaigns were not run.
+Checksums, mute and clipping controls, and the framing fixtures passed,
+including one-dibit and 256-dibit feeds. The 256-dibit feed is faster than its
+kept Crust measurement. The one-dibit median stays inside that earlier run's
+range. Crust-controlled processing allocations stayed at zero.
+
+**Limits and remaining work:** this is prepared-buffer routing only. It does
+not establish a live receiver, a language ranking, or a win over the native
+controls. The 5% target remains open. Clean-environment packaging, a full
+SDRTW v3 rebuild, new receiver features, and Assembly remain open.
+
 ## October 28, 2026 - Local code index
 
 **Implemented:** a local index of modules, calls, and declared native bindings.
