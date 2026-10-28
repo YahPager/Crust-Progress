@@ -1,5 +1,27 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Prepared routing within 5% of the Goose control
+
+**Implemented:** clamp-shaped value choices now compile to one minimum or
+maximum step per bound. The compiler first proves that reordering cannot change
+the result. Non-numeric values, infinities, and signed zero still pass through
+unchanged.
+
+**Verified:** on Windows x64, two independent nine-pair campaigns compared the
+256-frame reused-buffer routing block with the pinned Goose control, alternating
+which program ran first. Both put Crust about 1% slower than Goose. Every
+95% interval stayed well under the 5% bar. Checksums, mute and clipping
+controls, an exact output comparison covering non-numeric values, infinities,
+and signed zero, the interoperability suites, and the framing fixtures at
+one-dibit and 256-dibit feeds all passed. Crust-controlled processing
+allocations stayed at zero.
+
+**Limits and remaining work:** this covers prepared-buffer routing only. Crust
+is still slower than the Rust control on this workload, and this is not a
+language ranking or a live-receiver result. Scoped scratch storage,
+clean-environment packaging, a full SDRTW v3 rebuild, new receiver features,
+and Assembly remain open.
+
 ## October 28, 2026 - Prepared routing moved closer
 
 **Implemented:** failure-only error construction stays off the successful
