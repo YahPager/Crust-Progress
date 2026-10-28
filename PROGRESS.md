@@ -1,5 +1,37 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Framing proof closes most of its gap to C++
+
+**Implemented:**
+- The compiler now writes a record returned by a native library straight
+  into the variable that receives it, instead of copying it.
+- It marks error branches as rare, so the optimizer treats the main
+  processing loop as the hot path.
+- It reuses one error buffer per function where that is safe.
+
+The benchmark now runs the Crust framing program and a matched C++ program
+doing the same work side by side, alternating which runs first.
+
+**Verified:** on Windows x64, two independent campaigns compared the two
+programs with nine side-by-side pairs per feed size. Each run processes 128
+measured streams of 4,320 dibits after 8 warmup streams.
+
+| Feed size | Crust before | Crust after | C++ | After, Crust/C++ |
+|---|---:|---:|---:|---:|
+| 1 dibit | 539.5 µs/stream | 506.8-507.5 µs | 502.7-506.4 µs | 1.000-1.010 |
+| 256 dibits | 26.9 µs/stream | 25.2-25.3 µs | 24.5-24.7 µs | 1.027-1.029 |
+
+All framing correctness, reset and cleanup checks, the 156 compiler tests and
+the interoperability suites passed. Allocations and memory matched the C++
+program, and other benchmarks showed no slowdown.
+
+**Limits and remaining work:** the goal of matching or beating C++ is not yet
+met:
+- One-dibit feeds are within about 1%, a statistical tie in one campaign.
+- 256-dibit feeds are still about 3% slower. The C++ compiler processes one
+  input check 16 bytes at a time, while Crust checks it byte by byte; the
+  reason is still under investigation.
+
 ## October 28, 2026 - Measured comparisons across languages
 
 The public [comparison tables](README.md#measured-comparisons-across-languages)
