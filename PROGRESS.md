@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Prepared routing now faster than the Goose control
+
+**Implemented:** optimized Crust builds now split loops on conditions that do
+not change inside the loop. The routing block's per-sample mute checks
+disappear, and its loop runs four samples at a time on the baseline x64
+instruction set.
+
+**Verified:** on Windows x64, two independent nine-pair campaigns measured the
+256-frame reused-buffer routing block at about 40 ns per block for Crust. The
+pinned Goose control measured about 149 ns, so Crust's time is roughly 27% of
+Goose's. Checksums, mute and clipping controls, an exact output comparison
+covering non-numeric values, infinities, and signed zero, the interoperability
+suites, and the framing fixtures all passed. Crust-controlled processing
+allocations stayed at zero.
+
+**Limits and remaining work:** this covers prepared-buffer routing only. The
+native controls were built without the same loop splitting, so this is not a
+language ranking. Scoped scratch storage, clean-environment packaging, a full
+SDRTW v3 rebuild, new receiver features, and Assembly remain open.
+
 ## October 28, 2026 - Prepared routing within 5% of the Goose control
 
 **Implemented:** clamp-shaped value choices now compile to one minimum or
