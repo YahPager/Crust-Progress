@@ -1,5 +1,21 @@
 # Crust Progress Journal
 
+## October 28, 2026 - C comparison, phase 1
+
+**Verified:** the prepared-workload runner now measures C and Crust as
+adjacent pairs, alternating order, while keeping the C++, Rust and Goose
+controls. Two full campaigns each passed 180 cross-language controls.
+N-Queens is the only largest-size case whose paired intervals favour Crust
+in both campaigns; the other five remain slower than C.
+
+A compiler change preserves checked arithmetic while reducing the medium
+65,536-element sum from about 55.7 to 54 microseconds. Largest-sum timing
+remains variable, so no precise improvement is claimed there. The expanded
+499-case differential check, small-counter regression and all 157 root tests
+passed, as did routing
+and the SDRTW framing checks. These are existing prepared workloads, not a
+general language ranking. The six-workload C target remains open.
+
 ## October 28, 2026 - Framing proof closes most of its gap to C++
 
 **Implemented:**
