@@ -8,6 +8,7 @@ promises.
 |---|---|---|
 | Developer toolchain foundation | Check required native tools and run a mixed C/C++/Rust native-toolchain smoke test | Verified, limited to the Windows development environment |
 | Native compiler | Compile and run Crust programs and projects on Windows x64 | Core subset verified; full language remains planned |
+| Optional JIT execution | Execute checked Crust programs and tests through an opt-in native JIT path | Selected Windows x64 execution, interface and lifecycle checks verified; AOT remains the default |
 | C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected scalar, borrowed-buffer, record, and owned-resource interfaces verified in all six call directions on Windows x64 |
 | Checked resources | Demonstrate records, scoped borrowing, ownership, errors, cleanup, and explicit unsafe boundaries | Selected checks verified on Windows x64 with unoptimized and optimized output |
 | SDR: The Works v3 application proof | Exercise a bounded offline P25 Phase 2 framing slice | Selected synthetic framing verified on Windows x64; full receiver and host compatibility remain unverified |

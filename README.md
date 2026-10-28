@@ -14,6 +14,12 @@ Maintained by [YahPager](https://github.com/YahPager).
 
 **First bounded SDRTW v3 offline framing proof verified on Windows x64.**
 
+**Opt-in JIT execution is also verified on Windows x64.** Existing ahead-of-time
+execution remains the default. Selected C/C++/Rust interfaces, checked failures,
+resource cleanup and native-library lifecycle checks pass in both modes. The
+compiler suite now passes 180 tests. See the separate
+[whole-process AOT/JIT comparison](JIT-COMPARISON.md) for measured results and limits.
+
 The first application proof exercises selected synthetic P25 Phase 2 framing.
 Crust owns orchestration, input validation, reset, event routing, and lifecycle,
 with C, C++, and Rust integrations and an isolated native framing reference.

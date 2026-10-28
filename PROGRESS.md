@@ -1,5 +1,30 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Opt-in JIT and whole-process comparisons
+
+**Verified:** optional Windows x64 JIT execution for Crust programs and tests,
+with AOT retained as the default. Selected interfaces pass in all six directions
+between Crust and C/C++/Rust, including checked failures, errors, cleanup,
+exceptions/panics and native-library lifecycle checks. All 180 compiler tests
+pass with formatting and lint checks.
+
+Two complete campaigns cover sum, flat blur and scalar f32 particles at all nine
+selected published sizes. Each retains 250 process samples, including 100
+warmups and 150 timed measurements, and passes 30 independent full-output
+controls. Every timed application checksum passes; no sample was dropped.
+
+The [complete public comparison](JIT-COMPARISON.md) includes fresh C/C++/Rust and
+Crust AOT/JIT times, timing ranges, startup floors, separate build costs and
+separate process-memory peaks. Goose's October 16 published values remain
+unchanged and are labeled as historical results from a different machine.
+
+JIT compilation and startup dominate the small cases, and it is slower than
+the fresh prebuilt modes in these runs. Crust AOT has workload-specific wins
+and losses; large-sum and particle times vary between campaigns. Three timed
+runs per cell do not establish statistical superiority or an overall language
+ranking. The full published workload suite, broader platforms, clean-machine
+packaging and the full SDRTW receiver remain unverified.
+
 ## October 28, 2026 - Checked recursion: lower times, C target still open
 
 **Verified:** a compiler optimization for eligible recursive functions keeps
