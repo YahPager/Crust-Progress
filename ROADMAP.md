@@ -10,17 +10,19 @@ promises.
 | Native compiler | Compile and run Crust programs and projects on Windows x64 | Core subset verified; full language remains planned |
 | C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected scalar, borrowed-buffer, record, and owned-resource interfaces verified in all six call directions on Windows x64 |
 | Checked resources | Demonstrate records, scoped borrowing, ownership, errors, cleanup, and explicit unsafe boundaries | Selected checks verified on Windows x64 with unoptimized and optimized output |
-| SDR: The Works v3 application proof | Begin a future v3 proof with a limited P25 Phase 2 framing slice | Planned; no application or host compatibility verified |
+| SDR: The Works v3 application proof | Exercise a bounded offline P25 Phase 2 framing slice | Selected synthetic framing verified on Windows x64; full receiver and host compatibility remain unverified |
+| Broader SDR: The Works v3 | Rebuild broader receiver behavior and add future features | Planned |
 | Private prerelease | Verify the compiler and application proof in a clean Windows environment | Planned |
 
-The interoperability and resource results are limited to selected synthetic
-interfaces and checks in the Windows development environment. Broader language
-safety, library and platform compatibility, application behavior,
-clean-environment packaging, and broader performance evaluation remain planned.
-No comparative speed or memory advantage has been established.
+The interoperability, resource, and framing results are limited to selected
+synthetic interfaces and checks in the Windows development environment. A
+Crust-native P25 decoder, voice and security correctness, live hardware,
+full receiver behavior, host compatibility, clean-environment packaging, and
+broader language and platform coverage remain unverified. No comparative speed
+or memory advantage has been established.
 
-The planned first application proof has changed from BTW recorded audio to
-future SDR: The Works v3 framing. Earlier progress entries retain the previous
+The first application proof changed from BTW recorded audio to the bounded
+SDR: The Works v3 framing slice. Earlier progress entries retain the previous
 direction as a historical record. Broader v3 features remain future work.
 
 ## Status definitions

@@ -1,5 +1,30 @@
 # Crust Progress Journal
 
+## October 27, 2026 - First bounded SDRTW v3 framing proof
+
+**Implemented:** a bounded offline application slice for selected P25 Phase 2
+framing. Crust owns orchestration, validation, reset, event routing, and
+lifecycle, using C, C++, and Rust native integrations and an isolated native
+framing reference.
+
+**Verified:** selected synthetic framing fixtures passed independently checked
+native-reference expectations and actual Crust application runs on Windows x64.
+The Crust checks passed with both unoptimized and optimized output, including
+varied chunk boundaries, malformed inputs, reset, Unicode paths, native-library
+loading, and resource lifecycle checks.
+
+Repeated processing of the selected synthetic workload was faster than its
+stream rate. This does not establish a Crust speed or memory advantage. The
+native comparison used different timing boundaries, so these measurements do
+not support a language-to-language speed ranking.
+
+**Limits and remaining work:** this proves selected synthetic offline framing,
+not a Crust-native P25 decoder, voice or security correctness, live hardware
+operation, a full SDRTW v3 rebuild, or host compatibility. Broader receiver
+features, other language and platform coverage, and clean-environment
+prerelease packaging remain planned. No compiler download or public application
+demonstration is available yet.
+
 ## October 27, 2026 - Selected records and checked resources
 
 **Implemented:** selected records, owned resources, scoped borrowing,

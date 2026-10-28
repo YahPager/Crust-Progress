@@ -12,7 +12,18 @@ Maintained by [YahPager](https://github.com/YahPager).
 
 ## Current status
 
-**Selected records, checked resources, and symmetric interoperability verified on Windows x64.**
+**First bounded SDRTW v3 offline framing proof verified on Windows x64.**
+
+The first application proof exercises selected synthetic P25 Phase 2 framing.
+Crust owns orchestration, input validation, reset, event routing, and lifecycle,
+with C, C++, and Rust integrations and an isolated native framing reference.
+Actual Crust application runs passed with both unoptimized and optimized
+output, including malformed-input, Unicode-path, native-library lifecycle,
+and cleanup checks.
+
+This is a bounded offline framing proof. It does not establish a Crust-native
+P25 decoder, voice or security correctness, live hardware operation, a full
+SDRTW v3 receiver rebuild, or host compatibility.
 
 The compiler can check, build, and execute Crust programs and projects using
 core numeric operations, functions, control flow, and modules. Native execution
@@ -34,10 +45,8 @@ separate verification.
 Developer toolchain checks and a separate mixed C/C++/Rust native-toolchain
 smoke test are also verified in the Windows development environment.
 
-The first application proof is now planned for a future SDR: The Works v3,
-starting with a limited P25 Phase 2 framing slice. Broader v3 functionality
-remains future work. No application proof, receiver, decoder, or host
-compatibility has been verified.
+Broader SDR: The Works v3 functionality and added features remain planned.
+The selected proof does not establish a complete application or live receiver.
 
 The full language, broader compatibility, clean-environment packaging, and
 broader performance evaluation remain planned. No comparative speed or memory
