@@ -7,6 +7,9 @@ Around 75% completion of the agreed roadmap, we will review readiness and
 decide what to open to the public. This sets a future review point, not a
 current completion estimate or an automatic publication date. Implementation
 remains private, with reviewed progress shared here.
+Sponsorship could bring the review forward. In the meantime, we will show
+verified capabilities through reviewed progress updates and demos. Any broader
+access will have an agreed scope before publication.
 
 ## October 28, 2026 - Checked loops close most of the gap to C
 
