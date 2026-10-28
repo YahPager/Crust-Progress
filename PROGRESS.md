@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Public-readiness checkpoint
+
+**Planned:** ZIP/prerelease packaging is deferred while development continues.
+Around 75% completion of the agreed roadmap, we will review readiness and
+decide what to open to the public. This sets a future review point, not a
+current completion estimate or an automatic publication date. Implementation
+remains private, with reviewed progress shared here.
+
 ## October 28, 2026 - Checked loops close most of the gap to C
 
 **Implemented:** for simple counting loops, the compiler now checks once,
