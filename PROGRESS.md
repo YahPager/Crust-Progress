@@ -1,5 +1,24 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Loop alignment removes code-placement slowdowns
+
+**Implemented:** optimized Crust builds now start loops on 64-byte
+boundaries. A loop's speed then no longer depends on the size of the code in
+front of it. The comparison suite's matched profile gives C, C++, Rust and
+Goose the same setting.
+
+**Verified:** the Fibonacci change made earlier code larger, and N-Queens and
+a mid-size particles run slowed by 2-7% even though their own compiled code
+had not changed. On Windows x64, two independent campaigns with 180 passing
+cross-language controls each brought both back to their earlier times. With
+the setting matched, Crust used about 4% less time than the Goose control for
+N-Queens at 12 queens, and Fibonacci stayed about 6% faster. Routing, the
+compiler tests and the framing fixtures passed.
+
+**Limits and remaining work:** framing at single-dibit feeds measured slightly
+slower in two runs, though the fastest runs were unchanged. That is not yet
+confirmed either way. These prepared kernels are not a language-wide ranking.
+
 ## October 28, 2026 - Recursive Fibonacci now faster than the Goose control
 
 **Implemented:** when a Crust function calls itself, the compiler now checks
