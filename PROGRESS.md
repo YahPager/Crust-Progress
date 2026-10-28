@@ -1,5 +1,33 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Developer workflow and measured execution cost
+
+**Implemented:** project creation, ordinary-module tests, and locked builds that
+pin the toolchain and native inputs. A compiler change reduced the cost of
+successful calls from Crust into native code. A separate native framing runner
+uses the same generated calls, reader, collector, validation, and timed
+boundary as the Crust application.
+
+**Verified:** on Windows x64, fresh before-and-after measurements of two
+workloads each show a lower median cost. The 256-frame prepared-buffer routing
+block is about 20% lower. Framing at a 256-dibit feed is about 50% lower.
+Both clear a 10% bar. Nine alternating paired runs put the 95% confidence
+interval entirely above a zero difference. One-dibit feeds are faster than their own
+earlier Crust measurement, and patterned framing fixtures still pass. Checked
+interfaces, complete error records, and zero Crust-controlled processing
+allocations are unchanged. Native allocations stay reported on their own.
+The narrower direct native measurement is unchanged and is not a language
+ranking.
+
+The native routing controls remain faster than Crust on the same boundary.
+The separate native framing runner is also faster than the Crust application.
+Pinned inputs do not promise byte-identical executables.
+
+**Limits and remaining work:** no Assembly, custom allocator, full SDRTW v3
+rebuild, new receiver features, clean-environment package, or public compiler
+download is included. This does not establish a live receiver, a Crust-native
+P25 decoder, or an advantage over the native controls.
+
 ## October 27, 2026 - First bounded SDRTW v3 framing proof
 
 **Implemented:** a bounded offline application slice for selected P25 Phase 2
