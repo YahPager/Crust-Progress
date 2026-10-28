@@ -1,5 +1,38 @@
 # Crust Progress Journal
 
+## October 27, 2026 - Selected symmetric interoperability
+
+**Implemented:** generated interfaces between Crust and C, C++, and Rust for
+scalar values and borrowed primitive buffers.
+
+**Verified:** Crust calls each native language, and each native language calls
+Crust, in synthetic native programs on Windows x64. All six directions passed
+with both unoptimized and optimized output. Selected checks include invalid
+input rejection, failure handling, and native cleanup paths.
+
+**Remaining:** broader library and platform compatibility, records, owned
+resources, full ownership and deterministic resource cleanup, BTW audio
+execution, clean-environment packaging, and performance comparisons. This
+limited interface proof establishes no application compatibility or comparative
+speed or memory advantage. No compiler download or application demonstration
+is available yet.
+
+## October 27, 2026 - Core compiler and project builds
+
+**Implemented:** core numeric operations, functions, control flow, modules,
+and project builds.
+
+**Verified:** native Crust programs and projects execute on Windows x64 with
+both unoptimized and optimized output. Checks cover expected program results,
+rejection of invalid programs, checked arithmetic, and diagnostics.
+
+**Remaining at this checkpoint:** generated interfaces and six-direction
+interoperability, followed by the full language, records, owned resources,
+full ownership and resource cleanup, BTW audio execution, clean-environment
+packaging, and performance comparisons. This milestone establishes no
+comparative speed or memory advantage. No compiler download or application
+demonstration is available yet.
+
 ## October 27, 2026 - First native Crust programs
 
 **Implemented:** checking, building, and running small `.cru` programs within

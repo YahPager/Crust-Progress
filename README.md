@@ -12,21 +12,28 @@ Maintained by [YahPager](https://github.com/YahPager).
 
 ## Current status
 
-**First native Crust programs verified on Windows x64, within a small scalar subset.**
+**Core compiler and selected C/C++/Rust interoperability verified on Windows x64.**
 
-The compiler can check, build, and execute small `.cru` programs. This first
-subset has been verified with both unoptimized and optimized output, including
-checked integer arithmetic and diagnostics for invalid programs and arithmetic
-failures.
+The compiler can check, build, and execute Crust programs and projects using
+core numeric operations, functions, control flow, and modules. Native execution
+and invalid-program rejection have been verified with both unoptimized and
+optimized output, including checked arithmetic and diagnostics.
+
+Selected generated interfaces now support calls in both directions between
+Crust and each of C, C++, and Rust for scalar values and borrowed primitive
+buffers. All six directions were verified using synthetic native programs on
+Windows x64, including selected failure handling and native cleanup paths.
+This remains a limited interface proof; broader library and platform
+compatibility requires separate verification.
 
 Developer toolchain checks and a separate mixed C/C++/Rust native-toolchain
 smoke test are also verified in the Windows development environment.
 
-The full language, ownership checking, generated interfaces, Crust interoperability
-in all six call directions, and Broadcast: The Works (BTW) audio integration
-remain planned. The first application goal is a recorded-audio demonstration
-for BTW. This milestone does not establish application performance or a
-comparative speed advantage.
+The full language, records, owned resources, full ownership and resource cleanup,
+Broadcast: The Works (BTW) audio integration, clean-environment packaging, and
+performance comparisons remain planned. The first application goal is a
+recorded-audio demonstration for BTW. These milestones establish no comparative
+speed or memory advantage.
 
 ## Follow progress
 
