@@ -1,5 +1,23 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Local code index
+
+**Implemented:** a local index of modules, calls, and declared native bindings.
+C sources are parsed separately from C++ headers. Language-server and agent
+checks run as native Windows programs. Answer and embedding models stay on
+the loopback interface, with cloud access disabled.
+
+**Verified:** on Windows x64, the parser, process-cleanup, language-server,
+and agent checks passed, and the compiler suite passed with the new extract
+command. The configured answer context loaded on the Intel Arc B580. A
+separate CPU-only request also completed. The embedding length was measured.
+No startup service, Git hook, or recurring job was added.
+
+**Limits and remaining work:** clean-environment packaging, a full SDRTW v3
+rebuild, new receiver features, and Assembly remain open. This does not
+establish a live receiver, a Crust-native P25 decoder, or a public compiler
+download.
+
 ## October 28, 2026 - Developer workflow and measured execution cost
 
 **Implemented:** project creation, ordinary-module tests, and locked builds that
