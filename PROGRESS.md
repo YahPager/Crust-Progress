@@ -1,5 +1,29 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Checked loops close most of the gap to C
+
+**Implemented:** for simple counting loops, the compiler now checks once,
+before the loop starts, whether any array index could go out of range on any
+iteration. If none can, it runs a copy of the loop without per-iteration index
+checks; otherwise it runs the fully checked loop. Overflow-checked integer
+totals are now added in blocks with vector instructions. A block whose
+partial sums could overflow is redone with ordinary checked additions. Error
+locations, order and messages are unchanged.
+
+**Verified:** on Windows x64, two independent prepared-kernel campaigns each
+passed 180 cross-language controls.
+- **Blur, width 512:** about 7.7 times faster, within 3% of native C. Crust
+  now uses about 8% of the Goose control's time.
+- **Sum, 1,048,576 elements:** about 30% faster, about half the Goose
+  control's time.
+- **Other workloads:** no regressions.
+- **Other checks:** compiler tests covering both the fast and the fully
+  checked paths, routing and the framing fixtures all passed.
+
+**Limits and remaining work:** large sums remain slower than native C, which
+performs no overflow checks. Loops with more complex shapes still use
+per-iteration checks. These prepared kernels are not a language-wide ranking.
+
 ## October 28, 2026 - Loop alignment removes code-placement slowdowns
 
 **Implemented:** optimized Crust builds now start loops on 64-byte
