@@ -17,7 +17,7 @@ Maintained by [YahPager](https://github.com/YahPager).
 **Opt-in JIT execution is also verified on Windows x64.** Existing ahead-of-time
 execution remains the default. Selected C/C++/Rust interfaces, checked failures,
 resource cleanup and native-library lifecycle checks pass in both modes. The
-compiler suite now passes 180 tests. See the separate
+compiler suite now passes 186 tests. See the separate
 [whole-process AOT/JIT comparison](JIT-COMPARISON.md) for measured results and limits.
 
 The first application proof exercises selected synthetic P25 Phase 2 framing.
@@ -113,15 +113,18 @@ campaigns. These are not individual-block latency measurements:
 
 | Implementation | Reused buffers | Scoped scratch |
 |---|---:|---:|
-| Crust checked export | 39.75-39.84 | Not implemented |
+| Crust checked export | 40.04-40.33 | 48.63-48.93 |
 | C++ | 183.11-183.30 | 189.16-189.26 |
 | Rust | 149.80 | 153.52 |
 | Goose | 148.54-148.63 | 153.42 |
 
 This routing test uses each build's recorded settings, including additional
 Crust optimizations; its settings are not matched like the kernel table.
-No separate C routing control was measured. Scratch results are native
-prototypes; the Crust row measures actual generated routing code.
+No separate C routing control was measured. The Crust row is an October 28
+Crust-only measurement of actual generated code. Its scratch time includes
+reset inside the measured call, and prepared reuse remains the default
+because scratch was slower on that boundary. The C++, Rust, and Goose rows
+are earlier measurements and were not rerun; they are historical comparisons.
 
 ## Follow progress
 

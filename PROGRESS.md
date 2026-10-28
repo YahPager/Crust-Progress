@@ -1,5 +1,36 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Checked scratch storage and lifecycle
+
+**Verified:** Crust can acquire, zero, use, and reset temporary scratch storage
+over caller-provided numeric buffers. Invalid sizes, alignments, and capacity
+failures are rejected before any write or growth. The compiler suite passes
+186 tests, with formatting and lint checks.
+
+Two Crust-only routing campaigns on Windows x64 (Intel Core Ultra 7 265K),
+nine repetitions each, measured 256-frame stereo blocks. Medians of
+batch-average times were **40.33 and 40.04 ns/block** for prepared reuse, and
+**48.63 and 48.93 ns/block** for scratch. Each campaign passed 120 checksum
+controls, and steady processing made no allocation requests. Scratch's
+measured call includes its reset. Prepared reuse remains the default because
+scratch was slower on this boundary.
+
+A separate lifecycle measurement ran both strategies at 1, 16, and 64 MiB
+bursts, with retain and release, across three cycles. Two campaigns of 108
+processes each passed output, alignment, and exact final-cleanup checks.
+At 64 MiB, cold initialization was about 13.3-13.6 ms for both strategies.
+Keeping the burst lowered the next initialization to about 4.1-4.2 ms.
+Releasing it took about 1.8-2.0 ms and returned requested memory to the small
+prepared footprint, then to zero at final cleanup. Processing a 64 MiB burst
+was about 4.2-4.9 ms for both strategies. Reset medians were 0 ns and 100 ns,
+and the largest observed reset sample was 1,000 ns.
+
+The C++, Rust, and Goose figures in earlier entries were not remeasured and
+remain historical. These results cover one machine, one block size, and the
+checked call boundary. They do not establish a language-wide ranking, a
+real-time bound, or a general allocator. Implementation and detailed evidence
+remain private.
+
 ## October 28, 2026 - Opt-in JIT and whole-process comparisons
 
 **Verified:** optional Windows x64 JIT execution for Crust programs and tests,
