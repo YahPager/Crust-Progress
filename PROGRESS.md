@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Recursive Fibonacci now faster than the Goose control
+
+**Implemented:** when a Crust function calls itself, the compiler now checks
+the function's simple base cases at the call site and skips calls that would
+return immediately. Integer overflow and conversion checks are unchanged.
+
+**Verified:** on Windows x64, two independent campaigns of the prepared-kernel
+suite each passed 180 cross-language controls. With loop unswitching matched,
+Crust used about 7% less time than the Goose control for Fibonacci at n = 30.
+Every 95% interval favoured Crust at all three sizes, in both build profiles
+and both campaigns. Before this change, Crust took about 56% more time. All
+151 compiler tests and the framing fixtures passed, and the routing build is
+unchanged.
+
+**Limits and remaining work:** native C and C++ remain faster on this
+workload. N-Queens' earlier 3% Crust advantage is now inconclusive. Its
+compiled loop is unchanged, and the shift is suspected but not shown to come
+from code placement. These prepared kernels are not reproductions of Goose's
+published suite and are not a language-wide ranking.
+
 ## October 28, 2026 - Broader prepared-kernel comparisons
 
 **Implemented:** a private comparison suite now covers sum, image blur,
