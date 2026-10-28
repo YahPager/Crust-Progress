@@ -1,5 +1,31 @@
 # Crust Progress Journal
 
+## October 27, 2026 - Selected records and checked resources
+
+**Implemented:** selected records, owned resources, scoped borrowing,
+ownership checks, error handling, deterministic cleanup, and explicit unsafe
+boundaries.
+
+**Verified:** selected synthetic native programs exercised these capabilities
+across calls in both directions between Crust and each of C, C++, and Rust.
+All six directions passed on Windows x64 with both unoptimized and optimized
+output. Checks include rejection of invalid operations and resource cleanup
+on selected failure paths.
+
+These results cover the selected interfaces and documented rules. They do not
+establish general memory safety, arbitrary foreign-library compatibility, or
+a comparative speed or memory advantage.
+
+**Application direction:** the planned first application proof has changed
+from BTW recorded audio to a future SDR: The Works v3, beginning with a limited
+P25 Phase 2 framing slice. Broader v3 functionality remains future work.
+Earlier entries preserve the prior direction as a historical record.
+
+**Remaining:** the application proof, broader language and library coverage,
+other platforms, clean-environment packaging, and broader performance
+evaluation. No application, receiver, decoder, or host compatibility has been
+verified. No compiler download or application demonstration is available yet.
+
 ## October 27, 2026 - Selected symmetric interoperability
 
 **Implemented:** generated interfaces between Crust and C, C++, and Rust for
