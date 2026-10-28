@@ -75,24 +75,27 @@ and Goose** on Windows x64. The Goose control is pinned to v2026.3; newer
 releases were not measured. Lower times are better.
 
 The table shows median times at the largest tested size of each workload, in
-**microseconds per complete workload**, from the second of two recorded campaigns:
+**microseconds per complete workload**, from the second final C-paired campaign:
 
 | Workload | C | C++ | Rust | Crust | Goose |
 |---|---:|---:|---:|---:|---:|
-| Sum, 1,048,576 elements | 1,335.2 | 1,370.4 | 2,348.5 | 1,579.3 | 3,143.1 |
-| Image blur, width 512 | 420.1 | 420.1 | 3,994.9 | 430.6 | 5,118.6 |
-| Particles, 32,768 | 866.1 | 864.7 | 1,106.1 | 912.5 | 914.0 |
-| Matrix multiplication, width 128 | 222.4 | 223.0 | 247.0 | 240.6 | 956.2 |
-| N-Queens, 12 | 11,619.6 | 11,660.6 | 11,120.1 | 10,840.0 | 11,464.8 |
-| Fibonacci, 30 | 1,264.9 | 1,264.7 | 2,260.6 | 1,346.0 | 1,426.1 |
+| Sum, 1,048,576 elements | 1,229.1 | 1,247.7 | 2,478.8 | 1,650.7 | 3,267.1 |
+| Image blur, width 512 | 421.3 | 422.7 | 3,992.5 | 434.3 | 5,149.2 |
+| Particles, 32,768 | 866.4 | 866.1 | 1,113.1 | 898.6 | 916.0 |
+| Matrix multiplication, width 128 | 224.7 | 225.4 | 249.7 | 243.7 | 959.2 |
+| N-Queens, 12 | 11,618.0 | 11,632.0 | 11,130.0 | 10,955.0 | 11,468.0 |
+| Fibonacci, 30 | 1,264.3 | 1,265.0 | 2,252.3 | 1,345.7 | 1,429.3 |
 
 All five builds use matched loop-unswitching and alignment settings. These
 prepared kernels include their result digest but exclude allocation, setup
 and cleanup. Language-specific checks and call boundaries still differ.
-Both campaigns passed 180 cross-language controls. C/C++ remain faster than
-Crust on several cases; Crust and Goose's large particle results are too close
-to declare a winner. These are workload measurements, not an overall ranking
-or a reproduction of any language's original benchmark suite.
+Both final campaigns passed 180 cross-language controls. C and Crust run as
+adjacent alternating pairs. Only N-Queens meets the strict C target in both
+campaigns: its upper 95% time-ratio endpoint is at most 1.00. Blur is
+inconclusive; the other largest cases remain slower than C. Large-sum timing
+is variable, so no precise improvement is claimed there. These are workload
+measurements, not an overall ranking or a reproduction of any language's
+original benchmark suite. Historical results remain in the progress journal.
 
 A separate **256-frame stereo routing test**, in **nanoseconds per block**,
 measured the following medians of batch-average times across two recorded

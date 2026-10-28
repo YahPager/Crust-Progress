@@ -1,5 +1,24 @@
 # Crust Progress Journal
 
+## October 28, 2026 - C comparison, phase 2
+
+**Verified:** removing redundant work from checked signed-64-bit conversions
+improves the largest particle workload to about 900/899 microseconds in two
+full campaigns, from about 914/915 in phase 1. Inputs, C controls, build flags
+and Crust's safety rules are unchanged. Both campaigns passed 180 cross-language
+controls; all 159 root tests, including boundary and failure-order checks, pass.
+
+The [comparison tables](README.md#measured-comparisons-across-languages)
+now show the second final campaign for C, C++, Rust, Crust and Goose. Only
+N-Queens meets the strict C target in both campaigns. Blur remains
+inconclusive; sum, particles, matrix multiplication and Fibonacci remain
+slower than C. Largest-sum timings are variable. No outlier was removed,
+and the complete six-workload C target remains open.
+
+These results cover prepared kernels with setup and cleanup outside the clock.
+They do not establish a general language ranking or whole-application result.
+No new public interface, allocator, CPU requirement or archive release is added.
+
 ## October 28, 2026 - C comparison, phase 1
 
 **Verified:** the prepared-workload runner now measures C and Crust as
