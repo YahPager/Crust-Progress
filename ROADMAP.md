@@ -18,9 +18,10 @@ The interoperability, resource, and framing results are limited to selected
 synthetic interfaces and checks in the Windows development environment. A
 Crust-native P25 decoder, voice and security correctness, live hardware,
 full receiver behavior, host compatibility, clean-environment packaging, and
-broader language and platform coverage remain unverified. Two measured Crust
-workloads now cost less than their own earlier Crust baselines. No comparative
-speed or memory advantage over the native controls has been established.
+broader language and platform coverage remain unverified. Published
+[comparisons across languages](README.md#measured-comparisons-across-languages)
+cover named workloads and show both strengths and remaining gaps. They do not
+establish a general language-wide speed or memory advantage.
 
 The first application proof changed from BTW recorded audio to the bounded
 SDR: The Works v3 framing slice. Earlier progress entries retain the previous

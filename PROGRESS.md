@@ -1,5 +1,18 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Measured comparisons across languages
+
+The public [comparison tables](README.md#measured-comparisons-across-languages)
+now show the recorded Crust, C, C++, Rust and Goose measurements together.
+They cover six prepared workloads and the separate audio-routing test, with
+units, build-setting differences and unmeasured cases stated explicitly.
+
+**Verified:** the prepared-workload campaigns each passed 180 cross-language
+controls. Results show strengths and remaining gaps across the implementations;
+no overall language ranking is claimed. These tables publish existing
+measurements, not a new optimization or benchmark run. Memory-lifecycle
+prototypes and the SDRTW framing measurements remain separate results below.
+
 ## October 28, 2026 - SDRTW offline framing times and memory
 
 **Verified:** the bounded SDRTW v3 offline framing component passed **73

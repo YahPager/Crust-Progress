@@ -68,6 +68,48 @@ broader performance evaluation remain planned. Published performance results
 apply to the named workloads and measured boundaries; they do not establish
 a general language-wide speed or memory advantage.
 
+## Measured comparisons across languages
+
+The October 28 prepared-workload measurements compare **Crust, C, C++, Rust
+and Goose** on Windows x64. The Goose control is pinned to v2026.3; newer
+releases were not measured. Lower times are better.
+
+The table shows median times at the largest tested size of each workload, in
+**microseconds per complete workload**, from the second of two recorded campaigns:
+
+| Workload | C | C++ | Rust | Crust | Goose |
+|---|---:|---:|---:|---:|---:|
+| Sum, 1,048,576 elements | 1,335.2 | 1,370.4 | 2,348.5 | 1,579.3 | 3,143.1 |
+| Image blur, width 512 | 420.1 | 420.1 | 3,994.9 | 430.6 | 5,118.6 |
+| Particles, 32,768 | 866.1 | 864.7 | 1,106.1 | 912.5 | 914.0 |
+| Matrix multiplication, width 128 | 222.4 | 223.0 | 247.0 | 240.6 | 956.2 |
+| N-Queens, 12 | 11,619.6 | 11,660.6 | 11,120.1 | 10,840.0 | 11,464.8 |
+| Fibonacci, 30 | 1,264.9 | 1,264.7 | 2,260.6 | 1,346.0 | 1,426.1 |
+
+All five builds use matched loop-unswitching and alignment settings. These
+prepared kernels include their result digest but exclude allocation, setup
+and cleanup. Language-specific checks and call boundaries still differ.
+Both campaigns passed 180 cross-language controls. C/C++ remain faster than
+Crust on several cases; Crust and Goose's large particle results are too close
+to declare a winner. These are workload measurements, not an overall ranking
+or a reproduction of any language's original benchmark suite.
+
+A separate **256-frame stereo routing test**, in **nanoseconds per block**,
+measured the following medians of batch-average times across two recorded
+campaigns. These are not individual-block latency measurements:
+
+| Implementation | Reused buffers | Scoped scratch |
+|---|---:|---:|
+| Crust checked export | 39.75-39.84 | Not implemented |
+| C++ | 183.11-183.30 | 189.16-189.26 |
+| Rust | 149.80 | 153.52 |
+| Goose | 148.54-148.63 | 153.42 |
+
+This routing test uses each build's recorded settings, including additional
+Crust optimizations; its settings are not matched like the kernel table.
+No separate C routing control was measured. Scratch results are native
+prototypes; the Crust row measures actual generated routing code.
+
 ## Follow progress
 
 - [Roadmap](ROADMAP.md): planned milestones and status definitions.
