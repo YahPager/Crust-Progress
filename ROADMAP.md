@@ -24,6 +24,28 @@ broader language and platform coverage remain unverified. Published
 cover named workloads and show both strengths and remaining gaps. They do not
 establish a general language-wide speed or memory advantage.
 
+## General-purpose language growth
+
+Direction agreed October 28, 2026. Crust is intended for eventual public use
+across native systems applications. The roadmap now separates language maturity
+from the needs of any one application. Establishing this roadmap adds no new
+compiler or library behavior.
+
+| Area | Intended result | Status |
+| --- | --- | --- |
+| Composable application data | Richer ownership-safe data and reusable abstractions | Planned |
+| Reusable libraries | Library/dependency workflows and useful standard facilities | Planned |
+| Concurrency | Safe threads, communication and native integration lifetimes | Planned |
+| Processing libraries | Selected reusable numerical and protocol components | Planned |
+| General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |
+
+The full SDRTW v3 rebuild stays deferred while Crust matures and v2e development
+continues. Receiver work is one future test of the language. Readiness for
+general-purpose public use will also need evidence from independent programs.
+The existing public-readiness review remains a separate decision; this roadmap
+does not select a license, announce a release date, publish implementation or
+binaries, or establish a completion percentage.
+
 The first application proof changed from BTW recorded audio to the bounded
 SDR: The Works v3 framing slice. Earlier progress entries retain the previous
 direction as a historical record. Broader v3 features remain future work.

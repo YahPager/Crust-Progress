@@ -1,5 +1,24 @@
 # Crust Progress Journal
 
+## October 28, 2026 - General-purpose language growth roadmap
+
+**Planned direction recorded:** Crust is being developed for eventual public
+use as a general-purpose native systems language. Its growth roadmap now covers
+composable data, reusable abstractions and libraries, concurrency, developer
+tools, documentation and independent application demonstrations.
+
+This milestone establishes the roadmap and acceptance expectations. It does
+not implement or verify new language features. Existing compiler, interface
+and performance results retain their previously stated scope and limitations.
+
+SDRTW is one future proving ground. Its full v3 build remains deferred while
+Crust grows and v2e development continues. General language readiness will also
+be tested through a CLI tool, a small network service and a synthetic streaming
+program. Those demonstrations are planned.
+
+Implementation remains private. Public release, licensing and packaging remain
+separate decisions. See the [growth roadmap](ROADMAP.md#general-purpose-language-growth).
+
 ## October 28, 2026 - Faster JIT startup and a faster checked sum
 
 **Verified:** three compiler changes, each kept only after it beat the previous
