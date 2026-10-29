@@ -1,5 +1,28 @@
 # Crust Progress Journal
 
+## October 29, 2026 - Reusable generic abstractions
+
+**Verified on Windows x64:** selected generic functions and data types reuse
+algorithms and containers across primitive values, records and owned state.
+Static interface constraints reject unsupported type arguments.
+
+Synthetic programs check distinct and repeated instances, cross-module calls,
+ownership transfers, exact cleanup and recoverable failures. The new runtime
+scenarios pass ahead of time and through the optional JIT, with both unoptimized
+and optimized output. Invalid ownership, unmet constraints and visibility errors
+are rejected with source diagnostics. The compiler suite passes 240 tests.
+
+The existing C/C++/Rust interface contract is preserved. Compatible wrappers
+using generic code internally pass all six call directions. Generic data types
+remain internal rather than new native interface types. The existing offline
+framing correctness checks also pass.
+
+This completes the reusable-abstraction phase of the language-growth roadmap.
+Reusable library builds, standard facilities, concurrency and broader developer
+tools remain planned. The full SDRTW v3 rebuild stays deferred. Implementation
+remains private; public release and packaging require separate review. No new
+performance result is claimed.
+
 ## October 29, 2026 - Composable owned state
 
 **Verified on Windows x64:** Crust can now compose owned resources into
