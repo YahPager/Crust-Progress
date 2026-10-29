@@ -1,5 +1,29 @@
 # Crust Progress Journal
 
+## October 29, 2026 - Composable owned state
+
+**Verified on Windows x64:** Crust can now compose owned resources into
+application records, use methods, represent state with tagged variants and
+optional values, and return views tied to an input's lifetime.
+
+Synthetic programs check complete ownership transfers, replacement, exact
+cleanup order, recoverable failures and invalid-program rejection. The new
+runtime cases pass with unoptimized and optimized output, both ahead of time
+and through the optional JIT. A multi-module state example combines the new
+capabilities. Source-level public calls work without creating native exports.
+
+The existing C/C++/Rust interface contract is preserved. All six call
+directions pass, including compatible wrappers that use the new owned state
+internally. Richer owned state and returned views remain internal language
+types rather than new native interface types. The existing offline framing
+correctness checks also pass.
+
+This completes the composable-state phase of the language-growth roadmap.
+Generics, reusable library builds, standard facilities, concurrency and broader
+developer tools remain planned. The full SDRTW v3 rebuild stays deferred.
+Implementation remains private; public release and packaging require separate
+review. No new performance result is claimed.
+
 ## October 28, 2026 - General-purpose language growth roadmap
 
 **Planned direction recorded:** Crust is being developed for eventual public

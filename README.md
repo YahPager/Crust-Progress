@@ -11,7 +11,8 @@ with Windows x64 as the initial target.
 Crust is intended for eventual public use as a general-purpose systems language.
 The [growth roadmap](ROADMAP.md#general-purpose-language-growth) now covers
 language maturity, reusable libraries, concurrency, developer tools and
-independent application demonstrations. Those additions remain planned. SDRTW
+independent application demonstrations. The composable-state subset is now
+verified; later additions remain planned. SDRTW
 is one future proving ground; its full v3 rebuild stays deferred while Crust
 grows and v2e development continues. Public release remains a separate review.
 
@@ -19,12 +20,18 @@ Maintained by [YahPager](https://github.com/YahPager).
 
 ## Current status
 
+**Composable owned state is verified on Windows x64.** Owned records, methods,
+tagged variants, optional values and input-tied returned views pass selected
+ownership, cleanup and failure checks in both AOT and JIT, with unoptimized and
+optimized output. Existing native interfaces remain compatible. See the
+[milestone](PROGRESS.md#october-29-2026---composable-owned-state).
+
 **First bounded SDRTW v3 offline framing proof verified on Windows x64.**
 
 **Opt-in JIT execution is also verified on Windows x64.** Existing ahead-of-time
 execution remains the default. Selected C/C++/Rust interfaces, checked failures,
 resource cleanup and native-library lifecycle checks pass in both modes. The
-compiler suite now passes 192 tests. See the separate
+compiler suite now passes 231 tests. See the separate
 [whole-process AOT/JIT comparison](JIT-COMPARISON.md) for the earlier measured
 results and limits. A later October 28 pass kept three improvements against
 the previous Crust compiler: pure JIT programs skip an extra support library,

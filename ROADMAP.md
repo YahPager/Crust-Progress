@@ -33,7 +33,8 @@ compiler or library behavior.
 
 | Area | Intended result | Status |
 | --- | --- | --- |
-| Composable application data | Richer ownership-safe data and reusable abstractions | Planned |
+| Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
+| Reusable abstractions | Generic algorithms and data types | Planned |
 | Reusable libraries | Library/dependency workflows and useful standard facilities | Planned |
 | Concurrency | Safe threads, communication and native integration lifetimes | Planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
