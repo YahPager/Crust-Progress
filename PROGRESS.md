@@ -24,6 +24,17 @@ developer tools remain planned. The full SDRTW v3 rebuild stays deferred.
 Implementation remains private; public release and packaging require separate
 review. No new performance result is claimed.
 
+## October 29, 2026 - Goose-suite comparison scope
+
+**Planned:** A whole-process comparison of the published Goose benchmark suite
+is now scoped. It will cover the upstream C++ and Rust variants and
+independent C and Crust counterparts. Those programs, the runner, and the
+measurements are not done.
+
+Published Goose timings remain results from another machine. They are not a
+same-machine language ranking. Earlier measurements in this journal are
+unchanged. Implementation stays private.
+
 ## October 28, 2026 - General-purpose language growth roadmap
 
 **Planned direction recorded:** Crust is being developed for eventual public
