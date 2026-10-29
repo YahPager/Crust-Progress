@@ -1,5 +1,35 @@
 # Crust Progress Journal
 
+## October 28, 2026 - Faster JIT startup and a faster checked sum
+
+**Verified:** three compiler changes, each kept only after it beat the previous
+Crust build on Windows x64 (Intel Core Ultra 7 265K). Safety checks, the
+workloads, and the timing boundaries stayed the same. The compiler suite
+passes 192 tests, with formatting and lint checks.
+
+Two independent campaigns used two warmup pairs and nine measured alternating
+pairs. The ratio is the new compiler divided by the previous one. A change
+stayed only when its median improved and the upper 95% endpoint stayed below
+1 in both campaigns.
+
+| Change | Campaign 1 | 95% interval | Campaign 2 | 95% interval |
+|---|---:|---|---:|---|
+| Empty pure-Crust JIT program | 0.551 | 0.543-0.576 | 0.558 | 0.536-0.576 |
+| Small C project, JIT | 0.747 | 0.708-0.769 | 0.754 | 0.746-0.763 |
+| Largest checked sum, ahead of time | 0.791 | 0.751-0.825 | 0.804 | 0.780-0.861 |
+
+The empty JIT program still includes source checking and optimization. In two
+later full comparisons its best times were 144 ms and 143 ms, beside prebuilt
+empty programs near 13 ms. The largest sum's ahead-of-time best times were
+527 ms and 534 ms, beside C at 522 ms and 526 ms. Those readings do not
+establish a match with C. The sum checksum was unchanged.
+
+Blur and particle controls showed no repeatable slowdown. Blur's small change
+was not a target of this pass. Programs that call native libraries, and
+programs that export functions, still build their support library. Matching C
+across the published workloads remains open. Implementation and detailed
+evidence remain private.
+
 ## October 28, 2026 - Checked scratch storage and lifecycle
 
 **Verified:** Crust can acquire, zero, use, and reset temporary scratch storage

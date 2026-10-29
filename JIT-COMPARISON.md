@@ -2,6 +2,8 @@
 
 October 28, 2026. Opt-in Windows x64 JIT execution and selected native interfaces are verified. AOT remains the default. All 180 compiler tests pass, including checked failures, all six C/C++/Rust call directions, cleanup, exceptions/panics and native-library lifecycle cases.
 
+A later October 28 compiler change is recorded in the [progress journal](PROGRESS.md#october-28-2026---faster-jit-startup-and-a-faster-checked-sum). The tables below are the earlier campaigns and were not replaced.
+
 Two complete campaigns each retained 250 process samples: two warmups and three measurements for every workload/size/mode and empty-startup case. Each campaign passed 30 independent small full-output controls; all timed application checksums passed. No timing sample was dropped.
 
 The fresh local runs use Windows 11 build 26200 on an Intel Core Ultra 7 265K, with Clang/LLVM 22.1.6 and Rust 1.97.1. Optimized builds use baseline x86-64 and ordinary floating-point semantics. Safety checks and interface boundaries differ between languages.

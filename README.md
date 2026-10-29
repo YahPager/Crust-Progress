@@ -17,8 +17,15 @@ Maintained by [YahPager](https://github.com/YahPager).
 **Opt-in JIT execution is also verified on Windows x64.** Existing ahead-of-time
 execution remains the default. Selected C/C++/Rust interfaces, checked failures,
 resource cleanup and native-library lifecycle checks pass in both modes. The
-compiler suite now passes 186 tests. See the separate
-[whole-process AOT/JIT comparison](JIT-COMPARISON.md) for measured results and limits.
+compiler suite now passes 192 tests. See the separate
+[whole-process AOT/JIT comparison](JIT-COMPARISON.md) for the earlier measured
+results and limits. A later October 28 pass kept three improvements against
+the previous Crust compiler: pure JIT programs skip an extra support library,
+unlocked C and C++ projects do less repeated driver work, and eligible
+widening conversions use the existing checked-sum path. Empty JIT startup and
+the largest checked sum were faster than that previous Crust build. See the
+[progress journal](PROGRESS.md#october-28-2026---faster-jit-startup-and-a-faster-checked-sum).
+These runs do not show Crust matching C.
 
 The first application proof exercises selected synthetic P25 Phase 2 framing.
 Crust owns orchestration, input validation, reset, event routing, and lifecycle,
