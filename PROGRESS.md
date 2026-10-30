@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## October 29, 2026 - Portable target foundation
+
+**Verified on Windows x64:** opt-in portable projects select a concrete host
+target and keep their locks and build outputs separate from other targets.
+Synthetic programs pass with unoptimized and optimized output, ahead of time
+and through the optional JIT. Relocated projects still run with locked inputs.
+Static and shared library consumers pass; incompatible target metadata and
+locks are rejected while previous outputs remain intact. Existing Windows
+projects retain their behavior.
+
+**Planned:** native builds and JIT execution on Fedora KDE 44 x86_64, followed
+by reusable collections, Unicode text, formatting, bounded JSON, files,
+clocks and synchronous TCP. Acceptance will use independent file-processing
+and loopback-network programs. The Fedora execution environment is pending;
+Linux execution and the standard library are not verified.
+
+This is the platform-contract step of the next growth phase. The full phase,
+concurrency, public release and packaging remain unfinished. Implementation
+stays private. No new performance result is claimed.
+
 ## October 29, 2026 - Reusable packages and Windows libraries
 
 **Verified on Windows x64:** Crust code can now be shared between independent

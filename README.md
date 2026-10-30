@@ -29,6 +29,12 @@ experiments and external test fixtures.
 
 ## Current status
 
+**Portable target groundwork is verified on Windows x64.** Opt-in projects
+isolate target locks and build outputs, preserve existing Windows behavior,
+and pass selected AOT/JIT and relocation checks. Fedora Linux execution and
+the reusable standard library remain planned; their acceptance environment
+is pending. See the [milestone](PROGRESS.md#october-29-2026---portable-target-foundation).
+
 **Reusable packages and Windows libraries are verified on Windows x64.**
 Projects share code through local package dependencies with explicit public
 items, and build static libraries or DLLs that independent C, C++ and Rust
@@ -54,7 +60,7 @@ optimized output. Existing native interfaces remain compatible. See the
 **Opt-in JIT execution is also verified on Windows x64.** Existing ahead-of-time
 execution remains the default. Selected C/C++/Rust interfaces, checked failures,
 resource cleanup and native-library lifecycle checks pass in both modes. The
-compiler suite now passes 250 tests. See the separate
+compiler suite now passes 254 tests. See the separate
 [whole-process AOT/JIT comparison](JIT-COMPARISON.md) for the earlier measured
 results and limits. A later October 28 pass kept three improvements against
 the previous Crust compiler: pure JIT programs skip an extra support library,
