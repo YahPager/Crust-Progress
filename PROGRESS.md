@@ -1,5 +1,27 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Linux JIT execution verified
+
+**Verified on Fedora KDE 44 x86_64:** Crust programs and declared tests now run
+through the optional in-memory JIT with both unoptimized and optimized output.
+Ahead-of-time compilation remains the default.
+
+Selected C, C++ and Rust interfaces pass in all six call directions, including
+scalar and borrowed-buffer boundaries, explicit errors and exact resource
+cleanup. Checks also cover native exceptions and panics, termination for invalid
+destructors, argument forwarding, nested invocation and library teardown.
+
+Locked inputs, moved package layouts and separately built libraries work with
+the Linux JIT. Missing or incompatible runtimes, missing libraries, unresolved
+symbols and worker timeouts fail explicitly. The existing Linux native-build
+and numeric regression gate also passes.
+
+The reusable standard library, Linux framing, broader platform acceptance,
+packaging and public release remain later work. Windows regression results
+remain recorded at their earlier revisions; this Linux session does not claim
+a new Windows execution run. Source, detailed evidence and binaries stay
+private. No new performance result is claimed.
+
 ## October 30, 2026 - Linux native acceptance completed
 
 **Verified on Fedora KDE 44 x86_64:** the remaining selected native-interface

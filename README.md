@@ -36,8 +36,9 @@ both directions. Package dependencies, locked inputs, relocation, selected
 cleanup checks and failed-build preservation are covered. Windows native and
 optional JIT regressions passed in the preceding session. The remaining selected
 scalar/span and exact resource cleanup checks now pass on Fedora, completing the
-scoped native-build acceptance step. Linux JIT and the reusable standard library
-remain planned. See the [milestone](PROGRESS.md#october-30-2026---linux-native-acceptance-completed).
+scoped native-build acceptance step. Optional Linux JIT execution now passes
+selected interface, lifecycle, lock and relocation checks at both optimization
+levels. The reusable standard library remains planned. See the [JIT milestone](PROGRESS.md#october-30-2026---linux-jit-execution-verified).
 
 **Portable target groundwork is exercised on Windows and Fedora.** Opt-in
 projects isolate target locks and build outputs, preserve existing Windows
