@@ -38,7 +38,9 @@ optional JIT regressions passed in the preceding session. The remaining selected
 scalar/span and exact resource cleanup checks now pass on Fedora, completing the
 scoped native-build acceptance step. Optional Linux JIT execution now passes
 selected interface, lifecycle, lock and relocation checks at both optimization
-levels. The reusable standard library remains planned. See the [JIT milestone](PROGRESS.md#october-30-2026---linux-jit-execution-verified).
+levels. Public Crust types can also hide private representation and native
+owners, with access and cleanup checks verified on Linux AOT/JIT. The reusable
+standard library remains planned. See the [encapsulation milestone](PROGRESS.md#october-30-2026---encapsulated-public-types-verified).
 
 **Portable target groundwork is exercised on Windows and Fedora.** Opt-in
 projects isolate target locks and build outputs, preserve existing Windows

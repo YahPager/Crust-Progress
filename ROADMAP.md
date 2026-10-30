@@ -34,7 +34,7 @@ compiler or library behavior.
 
 | Area | Intended result | Status |
 | --- | --- | --- |
-| Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
+| Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT; explicit private record fields and encapsulated public types verified on Linux AOT/JIT with unoptimized and optimized output |
 | Reusable abstractions | Generic algorithms and data types with static constraints | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
 | Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages and static/shared library builds verified on Windows x64 in AOT/JIT with unoptimized and optimized output; standard facilities planned |
 | Portable targets | Separate host-target identities, locks and build outputs | Selected Windows x64 and scoped Fedora native AOT/JIT acceptance verified; complete standard-library acceptance remains pending |

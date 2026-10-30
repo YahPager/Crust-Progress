@@ -1,5 +1,24 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Encapsulated public types verified
+
+**Verified on Fedora KDE 44 x86_64:** public Crust types can now keep selected
+record fields private to their defining module. Independent package consumers
+use public operations while direct field access and construction attempts are
+rejected. Existing unmarked fields retain their behavior.
+
+Checks cover generic specialization, public interface boundaries and borrowed
+views. Public types can hide move-only native owners from C, C++ and Rust;
+independent counters verify cleanup through replacement, moves, nested values,
+errors and interrupted construction. These checks pass with unoptimized and
+optimized output, ahead of time and through the optional Linux JIT.
+
+The existing Linux compiler and native-interface regression gate also passes.
+Windows execution is not revalidated by this Linux session. Reusable storage,
+collections and the remaining standard-library work are still planned.
+Implementation, detailed evidence and binaries stay private; public release
+remains a separate decision. No new performance result is claimed.
+
 ## October 30, 2026 - Linux JIT execution verified
 
 **Verified on Fedora KDE 44 x86_64:** Crust programs and declared tests now run
