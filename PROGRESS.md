@@ -1,5 +1,36 @@
 # Crust Progress Journal
 
+## October 29, 2026 - Reusable packages and Windows libraries
+
+**Verified on Windows x64:** Crust code can now be shared between independent
+projects. Projects declare local package dependencies, which resolve once
+across shared and diamond-shaped graphs. Only items marked public cross
+package boundaries. Library packages build without an entry point, either
+as static libraries or as DLLs with import libraries. Each library ships with
+a generated C header and checked build metadata.
+
+Independent C, C++ and Rust programs link these libraries and call their
+exported functions. Crust programs consume libraries built by Crust, C, C++
+and Rust toolchains, and dependency packages may bring their own native code.
+These Crust programs pass ahead of time and through the optional JIT, with
+both unoptimized and optimized output; building a library itself remains
+ahead of time. Synthetic programs check successful calls,
+failures and exact resource cleanup. Locked builds pin dependencies with
+relocatable paths and survive moving a whole project layout.
+
+Dependency cycles, conflicting package identities, private access, changed or
+missing inputs and incompatible library metadata are rejected. Rejected builds
+leave previous outputs untouched. Required library DLLs are staged with the
+application and never loaded from PATH or the current directory. The
+compiler suite passes 250 tests, and the existing offline framing correctness
+checks also pass.
+
+This completes the library-build phase of the language-growth roadmap.
+Standard facilities, concurrency and broader developer tools remain planned.
+The full SDRTW v3 rebuild stays deferred. Implementation remains private;
+public release and packaging require separate review. No new performance
+result is claimed.
+
 ## October 29, 2026 - Reusable generic abstractions
 
 **Verified on Windows x64:** selected generic functions and data types reuse

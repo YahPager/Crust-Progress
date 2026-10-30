@@ -11,14 +11,22 @@ with Windows x64 as the initial target.
 Crust is intended for eventual public use as a general-purpose systems language.
 The [growth roadmap](ROADMAP.md#general-purpose-language-growth) now covers
 language maturity, reusable libraries, concurrency, developer tools and
-independent application demonstrations. The composable-state and generic-abstraction
-subsets are now verified; later additions remain planned. SDRTW
+independent application demonstrations. The composable-state, generic-abstraction
+and library-build subsets are now verified; later additions remain planned. SDRTW
 is one future proving ground; its full v3 rebuild stays deferred while Crust
 grows and v2e development continues. Public release remains a separate review.
 
 Maintained by [YahPager](https://github.com/YahPager).
 
 ## Current status
+
+**Reusable packages and Windows libraries are verified on Windows x64.**
+Projects share code through local package dependencies with explicit public
+items, and build static libraries or DLLs that independent C, C++ and Rust
+programs use. Crust programs consume prebuilt C, C++, Rust and Crust
+libraries. Those programs pass in AOT and JIT with unoptimized and optimized
+output.
+See the [milestone](PROGRESS.md#october-29-2026---reusable-packages-and-windows-libraries).
 
 **Reusable generic abstractions are verified on Windows x64.** Selected generic
 algorithms and data types now handle primitive, record and owned values, with
@@ -37,7 +45,7 @@ optimized output. Existing native interfaces remain compatible. See the
 **Opt-in JIT execution is also verified on Windows x64.** Existing ahead-of-time
 execution remains the default. Selected C/C++/Rust interfaces, checked failures,
 resource cleanup and native-library lifecycle checks pass in both modes. The
-compiler suite now passes 240 tests. See the separate
+compiler suite now passes 250 tests. See the separate
 [whole-process AOT/JIT comparison](JIT-COMPARISON.md) for the earlier measured
 results and limits. A later October 28 pass kept three improvements against
 the previous Crust compiler: pure JIT programs skip an extra support library,

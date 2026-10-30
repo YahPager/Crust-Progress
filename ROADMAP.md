@@ -35,7 +35,7 @@ compiler or library behavior.
 | --- | --- | --- |
 | Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
 | Reusable abstractions | Generic algorithms and data types with static constraints | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
-| Reusable libraries | Library/dependency workflows and useful standard facilities | Planned |
+| Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages and static/shared library builds verified on Windows x64 in AOT/JIT with unoptimized and optimized output; standard facilities planned |
 | Concurrency | Safe threads, communication and native integration lifetimes | Planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
 | General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |
