@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## October 29, 2026 - Linux native preparation
+
+**Implemented for acceptance:** a Linux native build path and a terminal
+runner for the designated Fedora KDE 44 x86_64 host. This is preparation;
+Linux support has not passed execution acceptance.
+
+**Verified on Windows x64:** the current compiler regression suite passes,
+including existing C/C++/Rust native interoperability and optional JIT checks.
+The pinned compiler also produces Linux object files from selected Crust
+programs with unoptimized and optimized output. Linux target compilation and
+lint checks pass. These checks do not execute Linux programs.
+
+**Pending:** the Fedora installation, exact native prerequisite checks and
+real Linux execution, including linking/loading, cleanup, relocation and all
+six applicable C/C++/Rust call directions. Linux JIT remains a later step.
+The Linux native step and the full standard-library phase remain open.
+
+Implementation, detailed evidence and binaries stay private. No new timing
+result, public release or completed Linux milestone is claimed.
+
 ## October 29, 2026 - Portable target foundation
 
 **Verified on Windows x64:** opt-in portable projects select a concrete host

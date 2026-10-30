@@ -31,9 +31,11 @@ experiments and external test fixtures.
 
 **Portable target groundwork is verified on Windows x64.** Opt-in projects
 isolate target locks and build outputs, preserve existing Windows behavior,
-and pass selected AOT/JIT and relocation checks. Fedora Linux execution and
-the reusable standard library remain planned; their acceptance environment
-is pending. See the [milestone](PROGRESS.md#october-29-2026---portable-target-foundation).
+and pass selected AOT/JIT and relocation checks. A Linux native port and
+acceptance runner are now prepared; Windows regression and Linux object
+generation checks pass. Actual Fedora execution remains pending, as does
+the reusable standard library. See the [preparation update](PROGRESS.md#october-29-2026---linux-native-preparation)
+and [platform milestone](PROGRESS.md#october-29-2026---portable-target-foundation).
 
 **Reusable packages and Windows libraries are verified on Windows x64.**
 Projects share code through local package dependencies with explicit public
