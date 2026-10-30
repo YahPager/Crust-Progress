@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Typed owning storage verified
+
+**Verified on Fedora KDE 44 x86_64:** typed storage now owns allocated space, tracks initialized elements and releases them automatically. Checks cover primitive values, records, variants and move-only native resources from C, C++ and Rust, with unoptimized and optimized output in AOT and optional JIT execution.
+
+Selected failures include overflowing capacity, rejected allocations, full storage and interrupted construction. Independent native counters verify that live resources are destroyed exactly once and existing values survive allocation failure. Ownership rejection, source-package use and relocated locked execution also pass. The Linux compiler and native-interface regression gate passes.
+
+Checked element views, transfers, collections and the remaining standard library are later work. This Linux session does not revalidate Windows execution or establish a new performance result. Implementation, detailed evidence and binaries remain private; public release remains a separate decision.
+
 ## October 30, 2026 - Encapsulated public types verified
 
 **Verified on Fedora KDE 44 x86_64:** public Crust types can now keep selected
