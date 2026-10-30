@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Queue and ordered map verified on Windows
+
+A bounded single-thread queue and ordered generic map now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Checks cover queue wraparound and full/empty behavior, static integer and owned-string key ordering, insertion, replacement, removal and borrowed views.
+
+Independent queue/map models agree with selected operation traces. Allocation failures preserve existing entries and committed capacity, partial construction cleans up exactly, and C/C++/Rust resource counters verify ownership through the selected success and failure paths. The full Windows regression and bounded framing correctness gates pass.
+
+Native Fedora verification of these additions remains pending, so cross-platform acceptance stays open. Math, formatting, checked byte operations and further facilities remain later work at this checkpoint. Implementation, detailed evidence and binaries stay private; no concurrency or public release is claimed.
+
 ## October 30, 2026 - Owned UTF-8 strings verified on Windows
 
 Owned UTF-8 strings now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Construction and byte append validate text, checked slicing respects Unicode boundaries, and borrowed views keep ownership rules intact. Independent Unicode and ordering checks cover malformed input, multibyte boundaries, empty ranges and selected overflow cases.
