@@ -1,5 +1,11 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Encapsulated types verified on Windows
+
+Private record fields and encapsulated public types now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Independent package consumers can use public operations while unauthorized state access and construction reject. Generic types, borrowed views and hidden C/C++/Rust native owners preserve ownership and exact cleanup checks.
+
+The full Windows compiler regression and bounded framing gates pass. Together with the recorded Fedora results, this verifies the selected private-field acceptance on both systems. Collections and later standard-library facilities remain planned; implementation and detailed evidence stay private.
+
 ## October 30, 2026 - Windows JIT compatibility revalidated
 
 The current compiler passes Windows x64 JIT regression checks with unoptimized and optimized output after the Linux JIT port. Selected checks cover native interfaces in all six C/C++/Rust directions, errors, resource cleanup, exceptions and panics, runtime locks, arguments, timeouts and library lifecycle. The full Windows regression and framing correctness gates pass. Ahead-of-time compilation remains the default.
