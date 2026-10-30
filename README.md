@@ -18,6 +18,15 @@ grows and v2e development continues. Public release remains a separate review.
 
 Maintained by [YahPager](https://github.com/YahPager).
 
+## First week CodeGraph
+
+Crust's compiler and build-driver structure during its first week of development,
+captured October 29, 2026: **18 source files, 2,689 nodes and 3,978 indexed
+relationships**. This compiler-only snapshot excludes the SDRTW proof,
+experiments and external test fixtures.
+
+![First-week CodeGraph snapshot of the Crust compiler and build driver](assets/progress/crust-first-week-codegraph-2026-10-29.png)
+
 ## Current status
 
 **Reusable packages and Windows libraries are verified on Windows x64.**
