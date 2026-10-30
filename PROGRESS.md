@@ -1,5 +1,11 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Checked storage views verified on Windows
+
+Windows x64 checks now cover owner-tied shared and exclusive element views, checked replacement, removal and ownership transfer between typed storage owners. Borrowing checks reject escaping views, conflicting access and owner movement or destruction while borrowed. Independent C, C++ and Rust counters verify exact cleanup through the selected ownership operations.
+
+These checks pass with unoptimized and optimized output in AOT and optional JIT execution. The full Windows compiler regression and bounded framing correctness gates also pass. Native Fedora execution of these additions remains pending, so cross-platform acceptance remains open. Reusable collections are the next step; implementation and detailed evidence remain private.
+
 ## October 30, 2026 - Typed owning storage verified on Windows
 
 Typed owning storage now passes Windows x64 acceptance with unoptimized and optimized output in AOT and optional JIT execution. Checks cover primitive values, records, variants, nested storage and move-only C/C++/Rust resources. Allocation failures, capacity overflow, full insertion and partial construction preserve the tested ownership rules; independent counters verify exact cleanup.

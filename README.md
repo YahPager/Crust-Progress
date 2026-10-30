@@ -40,6 +40,8 @@ selected interface, lifecycle, lock and relocation checks at both optimization
 levels. Public Crust types can also hide private representation and native
 owners, with access and cleanup checks verified on Windows and Fedora AOT/JIT. Typed owning storage now passes selected allocation, initialization, ownership and cleanup checks on Windows and Fedora AOT/JIT. Collections and the remaining standard library are still planned. See the [storage milestone](PROGRESS.md#october-30-2026---typed-owning-storage-verified).
 
+Checked storage views and ownership transfers also pass selected Windows AOT/JIT checks; native Fedora verification of those additions remains pending.
+
 **Portable target groundwork is exercised on Windows and Fedora.** Opt-in
 projects isolate target locks and build outputs, preserve existing Windows
 behavior, and reject incompatible inputs. The earlier [platform milestone](PROGRESS.md#october-29-2026---portable-target-foundation)
