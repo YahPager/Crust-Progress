@@ -1,5 +1,11 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Windows JIT compatibility revalidated
+
+The current compiler passes Windows x64 JIT regression checks with unoptimized and optimized output after the Linux JIT port. Selected checks cover native interfaces in all six C/C++/Rust directions, errors, resource cleanup, exceptions and panics, runtime locks, arguments, timeouts and library lifecycle. The full Windows regression and framing correctness gates pass. Ahead-of-time compilation remains the default.
+
+Existing Fedora JIT results remain separate execution evidence. Implementation and detailed results stay private; public release remains later work.
+
 ## October 30, 2026 - Windows native compatibility revalidated
 
 The current compiler passes Windows x64 native-build regression checks after the Linux work. Selected C, C++ and Rust interfaces run in all six directions, including borrowed buffers, errors and resource cleanup. Source dependencies, independent native library consumers, locked inputs, relocation and failed-build preservation also pass with unoptimized and optimized output.
