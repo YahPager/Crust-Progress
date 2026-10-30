@@ -36,9 +36,9 @@ compiler or library behavior.
 | --- | --- | --- |
 | Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT; explicit private record fields and encapsulated public types verified on Windows and Fedora AOT/JIT with unoptimized and optimized output |
 | Reusable abstractions | Generic algorithms and data types with static constraints | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
-| Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages and static/shared library builds verified on Windows x64 in AOT/JIT with unoptimized and optimized output; standard facilities planned |
+| Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages and static/shared library builds verified on Windows x64 in AOT/JIT with unoptimized and optimized output; initial buffers/vectors verified on Windows, remaining standard facilities planned |
 | Portable targets | Separate host-target identities, locks and build outputs | Selected Windows x64 and scoped Fedora native AOT/JIT acceptance verified; complete standard-library acceptance remains pending |
-| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Typed owning storage verified on Windows and Fedora AOT/JIT; collections and remaining facilities planned, with independent Windows/Fedora application acceptance required |
+| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Typed owning storage verified on Windows and Fedora AOT/JIT; selected byte buffers and generic vectors verified on Windows AOT/JIT, with their Fedora checks and remaining facilities pending |
 | Concurrency | Safe threads, communication and native integration lifetimes | Planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
 | General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |

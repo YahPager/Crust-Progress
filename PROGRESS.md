@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Reusable buffers and vectors verified on Windows
+
+The first reusable byte buffers and generic vectors now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Reservation is explicit; bounded operations do not grow silently. Checks cover allocation failures preserving existing contents, primitive and aggregate elements, native owners, nested containers, borrowed views and ownership rejection.
+
+Independent operation traces and C/C++/Rust resource counters verify selected results and exact cleanup. Source-package consumers, relocated locked inputs, the full Windows compiler regression suite and bounded framing correctness gate also pass.
+
+Native Fedora verification of the new collections remains pending, so cross-platform acceptance is open. UTF-8 strings, queues, maps, math, formatting and further standard facilities remain later work at this checkpoint. Implementation, detailed evidence and binaries remain private; no public release or new performance result is claimed.
+
 ## October 30, 2026 - Checked storage views verified on Windows
 
 Windows x64 checks now cover owner-tied shared and exclusive element views, checked replacement, removal and ownership transfer between typed storage owners. Borrowing checks reject escaping views, conflicting access and owner movement or destruction while borrowed. Independent C, C++ and Rust counters verify exact cleanup through the selected ownership operations.
