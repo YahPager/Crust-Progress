@@ -34,9 +34,10 @@ static libraries and shared libraries execute with unoptimized and optimized
 output. Independent C, C++ and Rust consumers and providers exercise calls in
 both directions. Package dependencies, locked inputs, relocation, selected
 cleanup checks and failed-build preservation are covered. Windows native and
-optional JIT regressions pass on the returned compiler source. Additional native interface
-and cleanup verification remains open before full Linux acceptance. Linux JIT
-and the reusable standard library remain planned. See the [checkpoint](PROGRESS.md#october-30-2026---fedora-native-execution-checkpoint).
+optional JIT regressions passed in the preceding session. The remaining selected
+scalar/span and exact resource cleanup checks now pass on Fedora, completing the
+scoped native-build acceptance step. Linux JIT and the reusable standard library
+remain planned. See the [milestone](PROGRESS.md#october-30-2026---linux-native-acceptance-completed).
 
 **Portable target groundwork is exercised on Windows and Fedora.** Opt-in
 projects isolate target locks and build outputs, preserve existing Windows

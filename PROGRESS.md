@@ -1,5 +1,23 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Linux native acceptance completed
+
+**Verified on Fedora KDE 44 x86_64:** the remaining selected native-interface
+checks now pass with unoptimized and optimized output. Crust calls C, C++ and
+Rust, and each language calls Crust, exercising scalar boundaries, borrowed
+numeric and Boolean buffers, errors and exact resource destruction checks.
+
+The native gate also passes for executable, static and shared library outputs,
+local dependencies, locked inputs, relocated layouts, rejected inputs and
+process cleanup. This completes the scoped Linux native-build acceptance step.
+The compiler implementation is unchanged by this coverage closure; earlier
+Windows regression results remain recorded separately.
+
+Linux JIT and the reusable standard library remain later work. Framing on Linux,
+broader platform acceptance, packaging and public release remain unverified.
+Source, detailed evidence and binaries stay private. No new performance result
+is claimed.
+
 ## October 30, 2026 - Fedora native execution checkpoint
 
 **Verified on native Fedora KDE 44 x86_64:** selected Crust programs and
