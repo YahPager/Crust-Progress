@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Owned UTF-8 strings verified on Windows
+
+Owned UTF-8 strings now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Construction and byte append validate text, checked slicing respects Unicode boundaries, and borrowed views keep ownership rules intact. Independent Unicode and ordering checks cover malformed input, multibyte boundaries, empty ranges and selected overflow cases.
+
+Failed append and allocation preserve existing valid text, and allocation/release checks pass. Private representation access, mutable text views and escaping or conflicting borrows reject. The full Windows compiler regression gate passes.
+
+Native Fedora verification of these additions remains pending, so cross-platform acceptance stays open. Queues, maps, math, formatting and further standard facilities remain later work at this checkpoint. Implementation, detailed evidence and binaries remain private; no public release or new performance result is claimed.
+
 ## October 30, 2026 - Reusable buffers and vectors verified on Windows
 
 The first reusable byte buffers and generic vectors now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Reservation is explicit; bounded operations do not grow silently. Checks cover allocation failures preserving existing contents, primitive and aggregate elements, native owners, nested containers, borrowed views and ownership rejection.
