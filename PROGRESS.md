@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Initial math, formatting and byte facilities verified on Windows
+
+The source library now includes initial scalar and complex math, typed number/boolean formatting, exact hexadecimal float text and checked endian byte operations. Selected Windows x64 checks pass with unoptimized and optimized output in AOT and optional JIT execution. Independent vectors cover numeric edge cases, signed zero, format round trips, byte order, truncation and overflow.
+
+Concrete C/C++/Rust interfaces pass in both directions. Independent native parsing checks the float text, while allocation-failure tests verify cleanup of partial results and prepared byte operations perform no further allocation. The complete Windows regression and framing correctness gates pass. No performance improvement or complete numerical-library coverage is claimed.
+
+Native Fedora execution of these additions remains pending. Cross-platform standard-library acceptance stays open. This implementation run stops here; JSON, files, clocks, synchronous TCP and concurrency remain later work. Source, detailed evidence and binaries remain private, with no public release announced.
+
 ## October 30, 2026 - Queue and ordered map verified on Windows
 
 A bounded single-thread queue and ordered generic map now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Checks cover queue wraparound and full/empty behavior, static integer and owned-string key ordering, insertion, replacement, removal and borrowed views.

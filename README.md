@@ -38,9 +38,11 @@ scalar/span and exact resource cleanup checks now pass on Fedora, completing the
 scoped native-build acceptance step. Optional Linux JIT execution now passes
 selected interface, lifecycle, lock and relocation checks at both optimization
 levels. Public Crust types can also hide private representation and native
-owners, with access and cleanup checks verified on Windows and Fedora AOT/JIT. Typed owning storage now passes selected allocation, initialization, ownership and cleanup checks on Windows and Fedora AOT/JIT. Additional collections and the remaining standard library are still planned. See the [storage milestone](PROGRESS.md#october-30-2026---typed-owning-storage-verified).
+owners, with access and cleanup checks verified on Windows and Fedora AOT/JIT. Typed owning storage now passes selected allocation, initialization, ownership and cleanup checks on Windows and Fedora AOT/JIT. Further standard-library facilities remain planned. See the [storage milestone](PROGRESS.md#october-30-2026---typed-owning-storage-verified).
 
 Checked storage views, ownership transfers, reusable byte buffers, generic vectors, owned UTF-8 strings, a bounded queue and an ordered map also pass selected Windows AOT/JIT checks; native Fedora verification of those additions remains pending. See the [collection milestone](PROGRESS.md#october-30-2026---reusable-buffers-and-vectors-verified-on-windows).
+
+Initial scalar/complex math, typed formatting and checked endian bytes also pass selected Windows AOT/JIT checks, including both directions with C/C++/Rust. Their native Fedora acceptance remains pending. See the [numeric-library milestone](PROGRESS.md#october-30-2026---initial-math-formatting-and-byte-facilities-verified-on-windows).
 
 **Portable target groundwork is exercised on Windows and Fedora.** Opt-in
 projects isolate target locks and build outputs, preserve existing Windows
