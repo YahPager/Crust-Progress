@@ -29,13 +29,19 @@ experiments and external test fixtures.
 
 ## Current status
 
-**Portable target groundwork is verified on Windows x64.** Opt-in projects
-isolate target locks and build outputs, preserve existing Windows behavior,
-and pass selected AOT/JIT and relocation checks. A Linux native port and
-acceptance runner are now prepared; Windows regression and Linux object
-generation checks pass. Actual Fedora execution remains pending, as does
-the reusable standard library. See the [preparation update](PROGRESS.md#october-29-2026---linux-native-preparation)
-and [platform milestone](PROGRESS.md#october-29-2026---portable-target-foundation).
+**Native build checks pass on Fedora KDE 44 x86_64.** Selected programs,
+static libraries and shared libraries execute with unoptimized and optimized
+output. Independent C, C++ and Rust consumers and providers exercise calls in
+both directions. Package dependencies, locked inputs, relocation, selected
+cleanup checks and failed-build preservation are covered. Windows native and
+optional JIT regressions pass on the returned compiler source. Additional native interface
+and cleanup verification remains open before full Linux acceptance. Linux JIT
+and the reusable standard library remain planned. See the [checkpoint](PROGRESS.md#october-30-2026---fedora-native-execution-checkpoint).
+
+**Portable target groundwork is exercised on Windows and Fedora.** Opt-in
+projects isolate target locks and build outputs, preserve existing Windows
+behavior, and reject incompatible inputs. The earlier [platform milestone](PROGRESS.md#october-29-2026---portable-target-foundation)
+records the original Windows checkpoint.
 
 **Reusable packages and Windows libraries are verified on Windows x64.**
 Projects share code through local package dependencies with explicit public

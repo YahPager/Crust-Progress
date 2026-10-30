@@ -1,5 +1,31 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Fedora native execution checkpoint
+
+**Verified on native Fedora KDE 44 x86_64:** selected Crust programs and
+static/shared libraries build and execute with unoptimized and optimized
+output. Independent C, C++ and Rust programs call Crust, and Crust calls each
+language. The six call directions execute selected scalar, record and resource
+interfaces. Separate checks cover explicit errors, ownership and resource
+cleanup; this does not complete the full interface acceptance matrix.
+
+Local source dependencies and separately built libraries work through locked
+inputs and relocated package layouts. Checks reject incompatible, changed or
+missing inputs while preserving earlier successful outputs. Process timeout
+and descendant cleanup, executable permissions and missing-library failures
+are exercised on the actual Linux host.
+
+The pinned LLVM runtime also passes its prerequisite loading and small
+execution check. This does not implement or verify the Crust Linux JIT.
+The same source passes the Windows regression suite, including existing
+native/JIT interoperability, and the framing correctness gate.
+
+The native-build step remains open for additional interface and cleanup
+verification identified during review. Linux JIT, the reusable standard library
+and its independent application acceptance remain later work. Implementation
+and detailed evidence stay private. No new performance result or public
+release is claimed.
+
 ## October 29, 2026 - Linux native preparation
 
 **Implemented for acceptance:** a Linux native build path and a terminal

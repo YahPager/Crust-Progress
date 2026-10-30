@@ -7,16 +7,17 @@ promises.
 | Milestone | Intended result | Status |
 |---|---|---|
 | Developer toolchain foundation | Check required native tools and run a mixed C/C++/Rust native-toolchain smoke test | Verified, limited to the Windows development environment |
-| Native compiler | Compile and run Crust programs and projects on Windows x64 | Core subset verified; full language remains planned |
+| Native compiler | Compile and run Crust programs and projects on Windows x64 and Fedora KDE 44 x86_64 | Core Windows subset verified; selected Fedora native builds pass, full platform acceptance remains open |
 | Optional JIT execution | Execute checked Crust programs and tests through an opt-in native JIT path | Selected Windows x64 execution, interface and lifecycle checks verified; AOT remains the default |
-| C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected scalar, borrowed-buffer, record, and owned-resource interfaces verified in all six call directions on Windows x64 |
+| C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected interfaces verified on Windows; Fedora AOT exercises all six call directions, with additional interface/cleanup verification still open |
 | Checked resources | Demonstrate records, scoped borrowing, ownership, errors, cleanup, and explicit unsafe boundaries | Selected checks verified on Windows x64 with unoptimized and optimized output |
 | SDR: The Works v3 application proof | Exercise a bounded offline P25 Phase 2 framing slice | Selected synthetic framing verified on Windows x64; full receiver and host compatibility remain unverified |
 | Broader SDR: The Works v3 | Rebuild broader receiver behavior and add future features | Planned |
 | Private prerelease | Verify the compiler and application proof in a clean Windows environment | Planned |
 
-The interoperability, resource, and framing results are limited to selected
-synthetic interfaces and checks in the Windows development environment. A
+The interoperability and resource results are limited to selected synthetic
+interfaces and checks in the documented Windows and Fedora environments.
+Framing remains verified on Windows. A
 Crust-native P25 decoder, voice and security correctness, live hardware,
 full receiver behavior, host compatibility, clean-environment packaging, and
 broader language and platform coverage remain unverified. Published
@@ -36,7 +37,7 @@ compiler or library behavior.
 | Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
 | Reusable abstractions | Generic algorithms and data types with static constraints | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
 | Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages and static/shared library builds verified on Windows x64 in AOT/JIT with unoptimized and optimized output; standard facilities planned |
-| Portable targets | Separate host-target identities, locks and build outputs | Selected Windows x64 AOT/JIT, library and relocation checks verified; Linux native port prepared, actual Fedora execution pending |
+| Portable targets | Separate host-target identities, locks and build outputs | Selected Windows x64 AOT/JIT and native Fedora AOT program, library and relocation checks pass; full Linux interface acceptance and Linux JIT remain pending |
 | General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Planned; independent Windows/Fedora application acceptance required |
 | Concurrency | Safe threads, communication and native integration lifetimes | Planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
