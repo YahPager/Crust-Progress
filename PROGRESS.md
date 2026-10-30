@@ -1,5 +1,11 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Windows native compatibility revalidated
+
+The current compiler passes Windows x64 native-build regression checks after the Linux work. Selected C, C++ and Rust interfaces run in all six directions, including borrowed buffers, errors and resource cleanup. Source dependencies, independent native library consumers, locked inputs, relocation and failed-build preservation also pass with unoptimized and optimized output.
+
+The Windows compiler regression suite and bounded framing correctness gate pass. Existing Fedora execution evidence remains separate. Implementation and detailed evidence stay private; broader standard-library acceptance and public release remain later work.
+
 ## October 30, 2026 - Typed owning storage verified
 
 **Verified on Fedora KDE 44 x86_64:** typed storage now owns allocated space, tracks initialized elements and releases them automatically. Checks cover primitive values, records, variants and move-only native resources from C, C++ and Rust, with unoptimized and optimized output in AOT and optional JIT execution.
