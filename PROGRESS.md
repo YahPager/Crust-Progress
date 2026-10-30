@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Typed owning storage verified on Windows
+
+Typed owning storage now passes Windows x64 acceptance with unoptimized and optimized output in AOT and optional JIT execution. Checks cover primitive values, records, variants, nested storage and move-only C/C++/Rust resources. Allocation failures, capacity overflow, full insertion and partial construction preserve the tested ownership rules; independent counters verify exact cleanup.
+
+Source-package use, relocated locked execution and compiler rejection checks also pass. The full Windows compiler regression and bounded framing correctness gates pass. Together with the recorded native Fedora results, this verifies the selected typed-storage acceptance on both systems.
+
+This delivery stops after typed owning storage. Checked element views, transfers, collections and later standard-library facilities remain planned. Implementation, detailed evidence and binaries remain private; no public release or new performance result is claimed.
+
 ## October 30, 2026 - Encapsulated types verified on Windows
 
 Private record fields and encapsulated public types now pass Windows x64 checks with unoptimized and optimized output in AOT and optional JIT execution. Independent package consumers can use public operations while unauthorized state access and construction reject. Generic types, borrowed views and hidden C/C++/Rust native owners preserve ownership and exact cleanup checks.
