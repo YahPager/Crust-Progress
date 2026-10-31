@@ -1,5 +1,24 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Owned workers and cooperative stop verified on Windows
+
+Selected owned workers and cooperative cancellation now pass Windows x64
+checks in unoptimized and optimized ahead-of-time and optional JIT execution.
+Workers move owned data and return checked values or application errors.
+Dropping an unjoined handle requests stop and joins the worker.
+
+Checks cover startup failures, interrupted input evaluation, returned payloads,
+failed joins and shutdown recovery. Independent native counters verify exact
+cleanup with one, two and four workers. Borrowed state, incompatible functions
+and duplicate ownership are rejected. A deliberately broken error-lifetime
+path is detected. Existing compiler, library, native-interface and framing
+regression checks also pass.
+
+Phase 6 remains in progress. Shared ownership, synchronization, bounded channels
+and retained native callbacks still need implementation and acceptance. This
+milestone does not establish a complete concurrency runtime or application
+rebuild. Implementation, detailed evidence and binaries remain private.
+
 ## October 31, 2026 - Checked function references verified on Windows
 
 Selected named and stored function references now pass Windows x64 checks in

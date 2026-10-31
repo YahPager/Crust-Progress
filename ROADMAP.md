@@ -40,7 +40,7 @@ compiler or library behavior.
 | Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages, static/shared builds and the Phase 5 standard-library subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
 | Windows host projects | Separate explicit host-target locks and build outputs | Windows x64 verified; Linux support removed |
 | General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Phase 5 supported Windows subset verified in AOT/JIT, including independent file-processing and TCP/JSON programs, allocation failures, cleanup and selected native interfaces |
-| Concurrency | Safe threads, communication and native integration lifetimes | Phase 6 in progress; selected function references verified on Windows AOT/JIT; thread and callback runtimes remain planned |
+| Concurrency | Safe threads, communication and native integration lifetimes | Phase 6 in progress; selected function references, owned workers and cooperative stop verified on Windows AOT/JIT; shared state, communication and callbacks remain planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
 | General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |
 | Measured optimization (Phase 9) | Improve demonstrated compiler, runtime and library bottlenecks | Planned; preserve correctness and safety checks |

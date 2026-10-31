@@ -29,6 +29,9 @@ remains private during development, and no compiler download is available yet.
 - **Pass checked functions as values.** Selected named and stored function
   references preserve signatures, ownership and returned-view lifetimes, with
   explicit cloning and executable-lifetime checks in Windows AOT/JIT runs.
+- **Run owned work on threads.** Selected workers move owned data, return
+  values or errors, and cooperate with cancellation. Dropped handles stop and
+  join their workers; failure and exact cleanup checks pass in Windows AOT/JIT.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -38,27 +41,28 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: checked function references
+## Latest verified milestone: owned workers and cooperative stop
 
-**October 31, 2026 — selected function-reference checks pass on Windows x64.**
+**October 31, 2026 — selected owned-worker checks pass on Windows x64.**
 
-Named functions can be stored and called through checked references. Tests cover
-signatures, ownership, visibility, returned views, failed cloning, native cleanup
-and executable lifetime in unoptimized and optimized AOT/JIT runs.
+Workers move owned state and return checked values or application errors.
+Tests cover cancellation, dropped handles, startup failure, failed joins and
+shutdown recovery, with independent native cleanup counters in unoptimized and
+optimized AOT/JIT runs.
 
 The existing compiler, library, native-interface and framing checks also pass.
-Owned worker threads, communication and retained callbacks remain later Phase 6
-work. The earlier independent file-processing and TCP/JSON milestone remains
+Shared state, communication and retained callbacks remain later Phase 6 work.
+The earlier independent file-processing and TCP/JSON milestone remains
 recorded in the journal.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---checked-function-references-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---owned-workers-and-cooperative-stop-verified-on-windows)
 
 ## What's next
 
-The next focus is owned workers, cooperative cancellation, bounded channels,
-shared state, synchronization and native callback lifetimes. Phase 6 is in
-progress; its thread and callback runtimes remain planned. The function-reference
-milestone establishes the selected reference behavior described above.
+The next focus is shared state, synchronization, bounded channels and native
+callback lifetimes. Phase 6 is in progress; these facilities still need
+implementation and acceptance. The worker milestone establishes the selected
+ownership and shutdown behavior described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).
