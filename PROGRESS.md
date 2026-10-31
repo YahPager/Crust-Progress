@@ -1,5 +1,24 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Checked function references verified on Windows
+
+Selected named and stored function references now pass Windows x64 checks in
+unoptimized and optimized ahead-of-time and optional JIT execution. Calls retain
+signature, ownership, visibility and returned-view checks, with explicit cloning
+and worker-capability checking.
+
+The checks cover failed construction and cloning, interrupted argument
+evaluation, native consuming calls and exact cleanup. Executable retirement
+rejects new references while existing ones remain, and can be retried after
+their final release. A deliberately broken cleanup path is detected before JIT
+code disposal. Existing selected C/C++/Rust interfaces, library programs and
+framing regressions continue to pass.
+
+Phase 6 remains in progress. Owned threads, bounded communication, shared state
+and retained native callbacks still need implementation and acceptance. This
+milestone does not establish a completed concurrency runtime. Implementation,
+detailed evidence and binaries remain private.
+
 ## October 31, 2026 - Same-machine performance target agreed
 
 **Planned:** Phase 9 will optimize measured compiler, runtime and library

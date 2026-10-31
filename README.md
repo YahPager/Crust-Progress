@@ -26,6 +26,9 @@ remains private during development, and no compiler download is available yet.
 - **Use owned data and reusable libraries.** Selected records, generics,
   collections, UTF-8 text, formatting, JSON, files, clocks and synchronous TCP
   have passed Windows checks, including failure paths and ownership rejection.
+- **Pass checked functions as values.** Selected named and stored function
+  references preserve signatures, ownership and returned-view lifetimes, with
+  explicit cloning and executable-lifetime checks in Windows AOT/JIT runs.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -35,27 +38,27 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: two independent programs
+## Latest verified milestone: checked function references
 
-**October 31, 2026 — the selected Windows standard-library acceptance is complete.**
+**October 31, 2026 — selected function-reference checks pass on Windows x64.**
 
-A file-processing program exercises Unicode paths, collections, formatting and
-JSON. A separate synchronous TCP/JSON program communicates with independent
-native peers. Both pass unoptimized and optimized checks through ahead-of-time
-and optional JIT execution.
+Named functions can be stored and called through checked references. Tests cover
+signatures, ownership, visibility, returned views, failed cloning, native cleanup
+and executable lifetime in unoptimized and optimized AOT/JIT runs.
 
-The checks include expected outputs, split network messages, errors, shutdown,
-allocation failures and exact cleanup. This gives the language a practical
-checkpoint beyond isolated compiler examples.
+The existing compiler, library, native-interface and framing checks also pass.
+Owned worker threads, communication and retained callbacks remain later Phase 6
+work. The earlier independent file-processing and TCP/JSON milestone remains
+recorded in the journal.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---phase-5-standard-library-acceptance-completed-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---checked-function-references-verified-on-windows)
 
 ## What's next
 
-The next focus is ownership-safe concurrency and native callbacks: workers,
-cancellation, bounded channels, synchronization and callback lifetimes. The
-scope and acceptance plan are recorded; runtime acceptance remains in progress.
-**This is planned work, not a verified concurrency capability.**
+The next focus is owned workers, cooperative cancellation, bounded channels,
+shared state, synchronization and native callback lifetimes. Phase 6 is in
+progress; its thread and callback runtimes remain planned. The function-reference
+milestone establishes the selected reference behavior described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).
