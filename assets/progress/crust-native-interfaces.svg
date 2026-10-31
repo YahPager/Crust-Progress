@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title description">
+  <title id="title">Crust and native libraries</title>
+  <desc id="description">Selected interfaces are verified in all six call directions between Crust and C, C++, and Rust on Windows x64. This is a capability diagram, not a performance comparison.</desc>
+  <rect width="1200" height="400" rx="20" fill="#10171d"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#f0f3f6">
+    <text x="48" y="53" font-size="20" letter-spacing="2" fill="#e99459">NATIVE INTERFACES · WINDOWS X64</text>
+    <text x="48" y="108" font-size="34" font-weight="600">Three languages. Both directions.</text>
+    <g fill="#19242d" stroke="#43515e" stroke-width="2">
+      <rect x="48" y="167" width="300" height="126" rx="12"/>
+      <rect x="450" y="154" width="195" height="66" rx="10"/>
+      <rect x="680" y="154" width="195" height="66" rx="10"/>
+      <rect x="910" y="154" width="195" height="66" rx="10"/>
+    </g>
+    <text x="198" y="244" text-anchor="middle" font-size="42" font-weight="600" fill="#f28a42">Crust</text>
+    <g text-anchor="middle" font-size="27" font-weight="600">
+      <text x="547" y="197">C</text>
+      <text x="777" y="197">C++</text>
+      <text x="1007" y="197">Rust</text>
+    </g>
+    <g fill="none" stroke="#f28a42" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M370 258 H1007 M547 240 V258 M777 240 V258 M1007 240 V258"/>
+      <path d="m380 249 -10 9 10 9 M538 249 l9 -9 9 9 M768 249 l9 -9 9 9 M998 249 l9 -9 9 9"/>
+    </g>
+    <text x="777" y="303" text-anchor="middle" font-size="20" fill="#bcc7d1">Selected calls in all six directions verified</text>
+    <text x="48" y="357" font-size="20" fill="#bcc7d1">Scalar values · Borrowed buffers · Records · Owned resources</text>
+  </g>
+</svg>
