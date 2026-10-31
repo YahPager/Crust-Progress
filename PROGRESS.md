@@ -1,4 +1,20 @@
 # Crust Progress Journal
+## October 31, 2026 - Primitive atomic operations verified on Windows
+
+Selected boolean and integer atomic operations now pass Windows x64 checks in
+unoptimized and optimized ahead-of-time and optional JIT execution. The checked
+subset includes loads, stores, exchanges, compare-exchange, bitwise operations
+and wrapping integer arithmetic, using the default sequentially consistent order.
+
+Independent one-, two- and four-worker checks agree on counter and comparison
+loop totals. Checks cover every supported primitive width, arithmetic limits,
+invalid types and attempts to access atomic storage through ordinary operations.
+A deliberately broken arithmetic operation is detected. Existing compiler,
+library, native-interface and framing regression checks also pass.
+
+Phase 6 remains in progress. Explicit memory ordering, fences, locks, bounded
+channels and retained native callbacks still need implementation and acceptance.
+Implementation, detailed evidence and binaries remain private.
 
 ## October 31, 2026 - Shared and weak ownership verified on Windows
 

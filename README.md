@@ -36,6 +36,10 @@ remains private during development, and no compiler download is available yet.
   immutable access and checked lifetimes, including concurrent cloning,
   expiration and final cleanup in Windows AOT/JIT checks.
 
+- **Use primitive atomic operations.** Selected boolean and integer operations
+  pass Windows AOT/JIT checks, including wrapping arithmetic, compare-exchange
+  and independent concurrent totals. Explicit memory orders remain later work.
+
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
 </p>
@@ -44,28 +48,28 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: checked shared and weak ownership
+## Latest verified milestone: primitive atomic operations
 
-**October 31, 2026 — selected sharing checks pass on Windows x64.**
+**October 31, 2026 — selected atomic operations pass on Windows x64.**
 
-Owned data can now be shared through explicit owners and immutable views.
-Tests cover concurrent cloning and weak upgrades, expired references, failed
-allocation and count limits, with independent native cleanup counters in
-unoptimized and optimized AOT/JIT runs.
+Boolean and integer atomic operations now pass checks in unoptimized and
+optimized AOT/JIT runs. Independent one-, two- and four-worker checks cover
+counters and compare-exchange loops, with rejection checks for invalid types
+and ordinary access to atomic storage.
 
 The existing compiler, library, native-interface and framing checks also pass.
-Atomics, locks, communication and retained callbacks remain later Phase 6 work.
-The earlier owned-worker, file-processing and TCP/JSON milestones remain
-recorded in the journal.
+Explicit memory ordering, locks, communication and retained callbacks remain
+later Phase 6 work. Earlier ownership and application milestones remain in
+the journal.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---shared-and-weak-ownership-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---primitive-atomic-operations-verified-on-windows)
 
 ## What's next
 
-The next focus is atomics, locks, bounded channels and native
+The next focus is explicit atomic ordering, locks, bounded channels and native
 callback lifetimes. Phase 6 is in progress; these facilities still need
-implementation and acceptance. The sharing milestone establishes the selected
-ownership and lifetime behavior described above.
+implementation and acceptance. The atomic milestone establishes the selected
+operations described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).
