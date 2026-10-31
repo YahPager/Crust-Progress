@@ -1,5 +1,11 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Synchronous TCP verified on Windows
+
+Owned TCP listeners and streams now pass selected Windows x64 checks with unoptimized and optimized AOT/JIT execution. Real IPv4/IPv6 loopback tests cover split transfers, interruptions, EOF, shutdown, timeouts, peer resets and repeated teardown. Allocation failures, exact handle cleanup and invalid ownership checks also pass. Independent native peers exercise reset and blocked-write behavior.
+
+Independent file-processing and TCP/JSON application acceptance remains the final Phase 5 work. No Crust threading, callbacks or asynchronous networking is added. Linux support remains withdrawn, and implementation and binaries remain private.
+
 ## October 31, 2026 - Files, paths and clocks verified on Windows
 
 Owned files, lossless native paths and clocks now pass selected Windows x64 checks with unoptimized and optimized AOT/JIT execution. Tests cover Unicode and non-Unicode native filenames, explicit open modes, partial and interrupted transfers, EOF, failed opens, native error information, monotonic time and wall timestamps. Allocation failures and ownership rejection checks verify exact cleanup.

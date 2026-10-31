@@ -39,7 +39,7 @@ compiler or library behavior.
 | Reusable abstractions | Generic algorithms and data types with static constraints | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
 | Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages and static/shared library builds verified on Windows x64 in AOT/JIT with unoptimized and optimized output; initial buffers/vectors verified on Windows, remaining standard facilities planned |
 | Windows host projects | Separate explicit host-target locks and build outputs | Windows x64 verified; Linux support removed |
-| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Typed owning storage verified on Windows AOT/JIT; selected buffers, vectors, UTF-8 strings, bounded queue, ordered map, initial math, typed formatting, endian bytes, bounded JSON, files, native paths and clocks verified on Windows AOT/JIT; synchronous TCP and integrated application acceptance pending |
+| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Selected collections, UTF-8 strings, initial math, typed formatting, endian bytes, bounded JSON, files, native paths, clocks and synchronous TCP verified on Windows AOT/JIT; integrated application acceptance pending |
 | Concurrency | Safe threads, communication and native integration lifetimes | Planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
 | General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |
