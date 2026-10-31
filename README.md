@@ -44,6 +44,9 @@ remains private during development, and no compiler download is available yet.
 - **Read shared values concurrently.** Selected reader/writer locks permit
   overlapping readers and exclusive writers, with protected views, failure
   cleanup and rejected mutation through read guards in Windows AOT/JIT.
+- **Transfer owned values through bounded channels.** Selected communication
+  checks cover multiple producers and consumers, explicit outcomes, deadlines,
+  cancellation, disconnection and exact cleanup in Windows AOT/JIT.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -53,27 +56,28 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: reader/writer locks and protected views
+## Latest verified milestone: bounded channels and checked outcomes
 
-**October 31, 2026 — selected reader/writer lock checks pass on Windows x64.**
+**October 31, 2026 — selected bounded channel checks pass on Windows x64.**
 
-Readers can hold protected views together while writers retain exclusive access.
-Unoptimized and optimized AOT/JIT checks cover independent worker totals,
-contention, failed acquisition, exact cleanup and rejected guard/view escapes
-and read-only mutation. Removed-unlock checks detect broken cleanup.
+Multiple producers and consumers exchange owned values through fixed-capacity
+channels. Unoptimized and optimized AOT/JIT checks cover independent value
+traces, saturation, cancellation, deadlines, disconnection and exact cleanup.
+Failed sends return their unsent value for explicit handling. Prepared
+operations, including blocked waits, pass no-allocation checks.
 
 Existing compiler, library, native-interface and framing checks also pass.
-Communication and native callbacks remain later Phase 6 work. Earlier
-ownership, atomic and mutex milestones remain in the journal.
+Native callbacks and integrated acceptance remain later Phase 6 work. Earlier
+ownership, atomic and lock milestones remain in the journal.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---readerwriter-locks-and-protected-views-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---bounded-channels-and-checked-outcomes-verified-on-windows)
 
 ## What's next
 
-The next focus is bounded channels and native callback lifetimes. Phase 6 is
-in progress; these facilities still need implementation and acceptance. The
-reader/writer milestone establishes the selected guard and cleanup behavior
-described above.
+The next focus is native callback lifetimes and integrated concurrency
+acceptance. Phase 6 is in progress; these facilities still need implementation
+and verification. The channel milestone establishes the selected communication
+and cleanup behavior described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).

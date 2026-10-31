@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Bounded channels and checked outcomes verified on Windows
+
+Selected fixed-capacity channels now pass Windows x64 checks in unoptimized
+and optimized ahead-of-time and optional JIT execution. Multiple producers and
+consumers exchange owned values; failed sends return their unsent value through
+outcomes that require explicit handling.
+
+Independent value traces and native counters cover one, two and four workers,
+several capacities, empty and saturated workloads, and repeated startup/shutdown.
+Checks cover cancellation before mutation, successful operations preserved after
+commit, deadlines, draining after sender closure, receiver disconnection, native
+failures, retries and exact destruction. Prepared operations, including registered
+blocking waits, pass actual allocation checks. Deliberately broken ownership,
+wakeups, cancellation and deadline behavior are detected. Existing compiler,
+library, native-interface and framing regression checks also pass.
+
+Phase 6 remains in progress. Native callbacks, broader retirement integration
+and independent integrated consumers remain pending. Implementation, detailed
+evidence and binaries remain private.
+
 ## October 31, 2026 - Reader/writer locks and protected views verified on Windows
 
 Selected reader/writer locks now pass Windows x64 checks in unoptimized and
