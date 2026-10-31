@@ -4,9 +4,15 @@
 
 # Crust Progress
 
-Crust is an experimental native systems language with C-style syntax and `.cru`
-source files. Its goal is first-class interoperability with C, C++, and Rust,
-with Windows x64 as the initial target.
+I'm building Crust, an experimental native systems language with C-style syntax
+and `.cru` source files, with a focus on interoperability with C, C++, and Rust.
+Windows x64 is the initial target.
+
+I'm documenting verified milestones and remaining work publicly here at Crust
+Progress. Implementation remains private during development.
+
+**Follow the project:** read the [progress journal](PROGRESS.md) for verified
+milestones and the [roadmap](ROADMAP.md) for what's next.
 
 Crust is intended for eventual public use as a general-purpose systems language.
 The [growth roadmap](ROADMAP.md#general-purpose-language-growth) now covers
