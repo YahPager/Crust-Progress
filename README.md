@@ -48,8 +48,9 @@ optimized output. Selected C/C++/Rust interfaces work in both directions.
 
 Version-2 host projects retain separate Windows locks and build outputs;
 incompatible targets and artifacts reject. Bounded JSON event reading/writing
-also passes Windows AOT/JIT checks. Files/paths/clocks, synchronous TCP and
-independent application acceptance remain planned. There is no public
+also passes Windows AOT/JIT checks. Owned files, lossless native paths and
+clocks pass selected Windows checks. Synchronous TCP and independent application
+acceptance remain planned. There is no public
 compiler or binary release.
 
 **Reusable packages and Windows libraries are verified on Windows x64.**

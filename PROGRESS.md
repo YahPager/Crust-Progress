@@ -1,5 +1,11 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Files, paths and clocks verified on Windows
+
+Owned files, lossless native paths and clocks now pass selected Windows x64 checks with unoptimized and optimized AOT/JIT execution. Tests cover Unicode and non-Unicode native filenames, explicit open modes, partial and interrupted transfers, EOF, failed opens, native error information, monotonic time and wall timestamps. Allocation failures and ownership rejection checks verify exact cleanup.
+
+Synchronous TCP and independent application acceptance remain the next Phase 5 work. Linux support remains withdrawn and concurrency remains later work. Implementation, detailed evidence and binaries stay private; there is no public compiler release.
+
 ## October 30, 2026 - Bounded JSON verified on Windows
 
 The source library now includes bounded JSON event reading and writing on Windows x64. Unoptimized and optimized AOT/JIT checks cover independent token and output values, Unicode escapes, malformed numbers and grammar, truncation, nesting/output limits, allocation failures and exact cleanup. Rejected writer operations preserve existing output. Privacy and borrowed-view checks reject invalid use.
