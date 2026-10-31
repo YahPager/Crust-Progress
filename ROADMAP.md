@@ -43,6 +43,8 @@ compiler or library behavior.
 | Concurrency | Safe threads, communication and native integration lifetimes | Planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
 | General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |
+| Measured optimization (Phase 9) | Improve demonstrated compiler, runtime and library bottlenecks | Planned; preserve correctness and safety checks |
+| Independent performance validation (Phase 10) | Target runtime within 2.5% of each test's fastest qualifying competitor on this same machine | Planned; repeated local results determine acceptance, with other-machine results shown separately as references |
 
 The full SDRTW v3 rebuild stays deferred while Crust matures and v2e development
 continues. Receiver work is one future test of the language. Readiness for

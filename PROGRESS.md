@@ -1,5 +1,21 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Same-machine performance target agreed
+
+**Planned:** Phase 9 will optimize measured compiler, runtime and library
+bottlenecks. Phase 10 will independently measure the resulting build, targeting
+execution time within 2.5% of the fastest qualifying competitor in each test.
+
+Crust and its qualifying competitors will all run on this same physical machine.
+The comparison field covers optimized C, C++ and Rust, including separate
+compiler configurations, and Goose where a comparable local run is available.
+Repeated local results determine acceptance for each required test; results
+from other machines may still be shown as clearly labeled external references.
+
+This records the target and testing policy. It establishes no new performance
+result or claim that Crust already meets the target. Existing measurements
+retain their recorded context. Implementation and detailed evidence stay private.
+
 ## October 31, 2026 - Concurrency phase scope recorded
 
 Phase 6 has started with a reviewed scope and acceptance plan for ownership-safe concurrency and native callbacks on Windows x64. The planned work covers owned workers, cooperative cancellation, bounded channels, shared ownership, synchronization, explicit atomic ordering and callback lifetime management.
