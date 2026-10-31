@@ -41,6 +41,9 @@ remains private during development, and no compiler download is available yet.
 - **Protect shared values with mutexes.** Selected checked guards preserve
   scoped access and deterministic cleanup, including worker contention,
   acquisition failures and rejected guard/view escapes in Windows AOT/JIT.
+- **Read shared values concurrently.** Selected reader/writer locks permit
+  overlapping readers and exclusive writers, with protected views, failure
+  cleanup and rejected mutation through read guards in Windows AOT/JIT.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -50,27 +53,27 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: mutex guards and protected state
+## Latest verified milestone: reader/writer locks and protected views
 
-**October 31, 2026 — selected mutex and guard checks pass on Windows x64.**
+**October 31, 2026 — selected reader/writer lock checks pass on Windows x64.**
 
-Checked guards now protect shared values and unlock on scope and result exits.
-Unoptimized and optimized AOT/JIT checks cover contention, failed acquisition,
-cleanup and invalid guard/view lifetimes, with independent totals across one,
-two and four workers and native destruction counters.
+Readers can hold protected views together while writers retain exclusive access.
+Unoptimized and optimized AOT/JIT checks cover independent worker totals,
+contention, failed acquisition, exact cleanup and rejected guard/view escapes
+and read-only mutation. Removed-unlock checks detect broken cleanup.
 
 Existing compiler, library, native-interface and framing checks also pass.
-Reader/writer locks, communication and retained callbacks remain later Phase 6
-work. Earlier ownership and atomic milestones remain in the journal.
+Communication and native callbacks remain later Phase 6 work. Earlier
+ownership, atomic and mutex milestones remain in the journal.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---mutex-guards-and-protected-state-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---readerwriter-locks-and-protected-views-verified-on-windows)
 
 ## What's next
 
-The next focus is reader/writer locks, bounded channels and native
-callback lifetimes. Phase 6 is in progress; these facilities still need
-implementation and acceptance. The mutex milestone establishes the selected
-guard and cleanup behavior described above.
+The next focus is bounded channels and native callback lifetimes. Phase 6 is
+in progress; these facilities still need implementation and acceptance. The
+reader/writer milestone establishes the selected guard and cleanup behavior
+described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).

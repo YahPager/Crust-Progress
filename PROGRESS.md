@@ -1,5 +1,24 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Reader/writer locks and protected views verified on Windows
+
+Selected reader/writer locks now pass Windows x64 checks in unoptimized and
+optimized ahead-of-time and optional JIT execution. Readers can overlap;
+writers exclude both readers and writers. Checked views stay tied to their
+guards, and read guards cannot grant mutable access.
+
+Independent one-, two- and four-worker totals, coordinated contention and
+native counters check protected access and exact cleanup. Failure checks cover
+construction, acquisition, reader registration, count limits, retry and
+executable lifetime. Invalid upgrades are rejected; guard/view escapes,
+copying, storage and thread transfer are rejected. Removed unlocks are detected
+for both guard modes. Existing compiler, library, native-interface and framing
+regression checks also pass.
+
+Phase 6 remains in progress. Bounded channels, native callbacks and final
+integrated acceptance remain pending. Implementation, detailed evidence and
+binaries remain private.
+
 ## October 31, 2026 - Mutex guards and protected state verified on Windows
 
 Selected mutexes and local guards now pass Windows x64 checks in unoptimized
