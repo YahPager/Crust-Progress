@@ -1,4 +1,21 @@
 # Crust Progress Journal
+
+## October 31, 2026 - Explicit atomic ordering and fences verified on Windows
+
+Selected atomic memory-order choices and fences now pass Windows x64 checks in
+unoptimized and optimized ahead-of-time and optional JIT execution. Tests cover
+every supported operation/order combination and reject inappropriate orders,
+runtime selectors and invalid calls while preserving ordinary name visibility.
+
+Worker handshakes publish and acknowledge repeated payloads using both atomic
+ordering and fences. Checks inspect the emitted ordering, and an independent
+bounded publication model detects deliberately weakened synchronization. These
+checks supplement execution on x64; they are not a general memory-model proof.
+Existing compiler, library, native-interface and framing regressions also pass.
+
+Phase 6 remains in progress. Locks, bounded channels, retained native callbacks
+and final integrated acceptance remain pending. Implementation, detailed
+evidence and binaries remain private.
 ## October 31, 2026 - Primitive atomic operations verified on Windows
 
 Selected boolean and integer atomic operations now pass Windows x64 checks in
