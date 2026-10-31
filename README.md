@@ -47,8 +47,9 @@ ownership rejection and exact native cleanup are covered with unoptimized and
 optimized output. Selected C/C++/Rust interfaces work in both directions.
 
 Version-2 host projects retain separate Windows locks and build outputs;
-incompatible targets and artifacts reject. JSON, files/paths/clocks, synchronous
-TCP and independent application acceptance remain planned. There is no public
+incompatible targets and artifacts reject. Bounded JSON event reading/writing
+also passes Windows AOT/JIT checks. Files/paths/clocks, synchronous TCP and
+independent application acceptance remain planned. There is no public
 compiler or binary release.
 
 **Reusable packages and Windows libraries are verified on Windows x64.**

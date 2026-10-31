@@ -1,5 +1,11 @@
 # Crust Progress Journal
 
+## October 30, 2026 - Bounded JSON verified on Windows
+
+The source library now includes bounded JSON event reading and writing on Windows x64. Unoptimized and optimized AOT/JIT checks cover independent token and output values, Unicode escapes, malformed numbers and grammar, truncation, nesting/output limits, allocation failures and exact cleanup. Rejected writer operations preserve existing output. Privacy and borrowed-view checks reject invalid use.
+
+The full Windows regression and framing correctness gates pass. Files, paths, clocks, synchronous TCP and two independent application checks are the next ordered work in Phase 5. Linux support remains withdrawn; concurrency remains later work. Implementation and detailed evidence stay private, with no public source or binary release.
+
 ## October 31, 2026 - Windows-only development
 
 Crust now supports Windows x64 only. Linux support and its development setup tools have been removed. Earlier Fedora entries remain historical evidence for their recorded revisions; they do not describe current platform support.
