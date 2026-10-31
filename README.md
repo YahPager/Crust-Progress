@@ -32,6 +32,9 @@ remains private during development, and no compiler download is available yet.
 - **Run owned work on threads.** Selected workers move owned data, return
   values or errors, and cooperate with cancellation. Dropped handles stop and
   join their workers; failure and exact cleanup checks pass in Windows AOT/JIT.
+- **Share owned data explicitly.** Selected shared and weak owners preserve
+  immutable access and checked lifetimes, including concurrent cloning,
+  expiration and final cleanup in Windows AOT/JIT checks.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -41,28 +44,28 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: owned workers and cooperative stop
+## Latest verified milestone: checked shared and weak ownership
 
-**October 31, 2026 — selected owned-worker checks pass on Windows x64.**
+**October 31, 2026 — selected sharing checks pass on Windows x64.**
 
-Workers move owned state and return checked values or application errors.
-Tests cover cancellation, dropped handles, startup failure, failed joins and
-shutdown recovery, with independent native cleanup counters in unoptimized and
-optimized AOT/JIT runs.
+Owned data can now be shared through explicit owners and immutable views.
+Tests cover concurrent cloning and weak upgrades, expired references, failed
+allocation and count limits, with independent native cleanup counters in
+unoptimized and optimized AOT/JIT runs.
 
 The existing compiler, library, native-interface and framing checks also pass.
-Shared state, communication and retained callbacks remain later Phase 6 work.
-The earlier independent file-processing and TCP/JSON milestone remains
+Atomics, locks, communication and retained callbacks remain later Phase 6 work.
+The earlier owned-worker, file-processing and TCP/JSON milestones remain
 recorded in the journal.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---owned-workers-and-cooperative-stop-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---shared-and-weak-ownership-verified-on-windows)
 
 ## What's next
 
-The next focus is shared state, synchronization, bounded channels and native
+The next focus is atomics, locks, bounded channels and native
 callback lifetimes. Phase 6 is in progress; these facilities still need
-implementation and acceptance. The worker milestone establishes the selected
-ownership and shutdown behavior described above.
+implementation and acceptance. The sharing milestone establishes the selected
+ownership and lifetime behavior described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).

@@ -1,5 +1,23 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Shared and weak ownership verified on Windows
+
+Selected shared and weak owners now pass Windows x64 checks in unoptimized and
+optimized ahead-of-time and optional JIT execution. Shared views are tied to
+their owner's lifetime and permit immutable access. Cloning is explicit; weak upgrades
+distinguish expired data from count failures.
+
+Independent native counters verify final payload destruction across one, two
+and four workers. Checks cover concurrent cloning and upgrades, final-owner
+drop, failed allocation, reference-count limits, returned views and invalid
+ownership or sharing. Expired weak owners keep the required executable lifetime
+until their final release. Existing worker, compiler, library, native-interface
+and framing regression checks also pass.
+
+Phase 6 remains in progress. Atomics, locks, bounded channels and retained native
+callbacks still need implementation and acceptance. This is a verified sharing
+subset, with implementation, detailed evidence and binaries kept private.
+
 ## October 31, 2026 - Owned workers and cooperative stop verified on Windows
 
 Selected owned workers and cooperative cancellation now pass Windows x64
