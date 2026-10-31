@@ -38,6 +38,9 @@ remains private during development, and no compiler download is available yet.
 - **Use primitive atomic operations.** Selected boolean and integer operations
   pass Windows AOT/JIT checks, including wrapping arithmetic, compare-exchange
   and independent concurrent totals. Selected explicit orders and fences also pass.
+- **Protect shared values with mutexes.** Selected checked guards preserve
+  scoped access and deterministic cleanup, including worker contention,
+  acquisition failures and rejected guard/view escapes in Windows AOT/JIT.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -47,27 +50,27 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: explicit atomic memory ordering
+## Latest verified milestone: mutex guards and protected state
 
-**October 31, 2026 — selected ordering and fence checks pass on Windows x64.**
+**October 31, 2026 — selected mutex and guard checks pass on Windows x64.**
 
-Checked memory-order choices and fences pass publication handshakes and
-operation/order checks in unoptimized and optimized AOT/JIT runs. Separate
-checks inspect ordering and detect weakened synchronization against a bounded
-independent publication model.
+Checked guards now protect shared values and unlock on scope and result exits.
+Unoptimized and optimized AOT/JIT checks cover contention, failed acquisition,
+cleanup and invalid guard/view lifetimes, with independent totals across one,
+two and four workers and native destruction counters.
 
-The existing compiler, library, native-interface and framing checks also pass.
-Locks, communication and retained callbacks remain later Phase 6 work. Earlier
-ownership and application milestones remain in the journal.
+Existing compiler, library, native-interface and framing checks also pass.
+Reader/writer locks, communication and retained callbacks remain later Phase 6
+work. Earlier ownership and atomic milestones remain in the journal.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---explicit-atomic-ordering-and-fences-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---mutex-guards-and-protected-state-verified-on-windows)
 
 ## What's next
 
-The next focus is locks, bounded channels and native
+The next focus is reader/writer locks, bounded channels and native
 callback lifetimes. Phase 6 is in progress; these facilities still need
-implementation and acceptance. The atomic milestone establishes the selected
-operations described above.
+implementation and acceptance. The mutex milestone establishes the selected
+guard and cleanup behavior described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).

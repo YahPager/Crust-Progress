@@ -1,5 +1,23 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Mutex guards and protected state verified on Windows
+
+Selected mutexes and local guards now pass Windows x64 checks in unoptimized
+and optimized ahead-of-time and optional JIT execution. Checked views stay tied
+to the held guard; normal scope exits, errors and interrupted argument evaluation
+release ownership and unlock deterministically.
+
+Independent one-, two- and four-worker totals and native counters check mutual
+exclusion and exact final cleanup. Tests cover contention, recursive acquisition,
+failed construction/acquisition, count limits, retries, weak cycle breaking and
+executable lifetime. Invalid guard/view escape, copying, storage and thread
+transfer are rejected. A deliberately removed unlock is detected. Existing
+compiler, library, native-interface and framing regression checks also pass.
+
+Phase 6 remains in progress. Reader/writer locks, bounded channels, retained
+native callbacks and final integrated acceptance remain pending. Implementation,
+detailed evidence and binaries remain private.
+
 ## October 31, 2026 - Explicit atomic ordering and fences verified on Windows
 
 Selected atomic memory-order choices and fences now pass Windows x64 checks in
@@ -16,6 +34,7 @@ Existing compiler, library, native-interface and framing regressions also pass.
 Phase 6 remains in progress. Locks, bounded channels, retained native callbacks
 and final integrated acceptance remain pending. Implementation, detailed
 evidence and binaries remain private.
+
 ## October 31, 2026 - Primitive atomic operations verified on Windows
 
 Selected boolean and integer atomic operations now pass Windows x64 checks in
