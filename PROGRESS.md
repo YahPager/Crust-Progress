@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Phase 5 standard-library acceptance completed on Windows
+
+Phase 5 is complete for Crust's supported Windows x64 scope. Two independent programs exercise the source library: a Unicode-path file processor using collections, formatting and JSON, and a synchronous TCP/JSON program communicating with independent native peers. Unoptimized and optimized AOT/JIT checks cover complete expected outputs, split messages, errors, shutdown, allocation failures and exact cleanup.
+
+Selected concrete C/C++/Rust interfaces pass in all six call directions. Relocated dependency locks execute successfully and reject changed dependencies while preserving previous build outputs. The full regression, strict lint, formatting and framing gates pass, and the structural code graph is refreshed. These checks cover the recorded Windows library subset.
+
+Work stops after this milestone. Crust concurrency and callback facilities remain planned; Linux support remains withdrawn. Implementation, detailed evidence and binaries stay private. No public source, compiler release or full receiver rebuild is announced.
+
 ## October 31, 2026 - Synchronous TCP verified on Windows
 
 Owned TCP listeners and streams now pass selected Windows x64 checks with unoptimized and optimized AOT/JIT execution. Real IPv4/IPv6 loopback tests cover split transfers, interruptions, EOF, shutdown, timeouts, peer resets and repeated teardown. Allocation failures, exact handle cleanup and invalid ownership checks also pass. Independent native peers exercise reset and blocked-write behavior.
