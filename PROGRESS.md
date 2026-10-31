@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Concurrency phase scope recorded
+
+Phase 6 has started with a reviewed scope and acceptance plan for ownership-safe concurrency and native callbacks on Windows x64. The planned work covers owned workers, cooperative cancellation, bounded channels, shared ownership, synchronization, explicit atomic ordering and callback lifetime management.
+
+The contract review addresses startup and cleanup failures, cancellation, reentry and executable shutdown. Implementation and runtime acceptance are still in progress; this planning milestone establishes no new verified concurrency capability. Existing native interfaces and the completed standard-library scope remain the compatibility baseline. Work is authorized through Phase 6, stopping before processing-library development in Phase 7.
+
+Implementation, detailed specifications and evidence remain private. No source release, compiler download, Linux support or full receiver rebuild is announced.
+
 ## October 31, 2026 - Phase 5 standard-library acceptance completed on Windows
 
 Phase 5 is complete for Crust's supported Windows x64 scope. Two independent programs exercise the source library: a Unicode-path file processor using collections, formatting and JSON, and a synchronous TCP/JSON program communicating with independent native peers. Unoptimized and optimized AOT/JIT checks cover complete expected outputs, split messages, errors, shutdown, allocation failures and exact cleanup.
