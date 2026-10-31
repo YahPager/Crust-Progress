@@ -1,5 +1,13 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Windows-only development
+
+Crust now supports Windows x64 only. Linux support and its development setup tools have been removed. Earlier Fedora entries remain historical evidence for their recorded revisions; they do not describe current platform support.
+
+The Windows compiler, optional JIT and existing source-library work are retained. Windows regression checks cover the implemented library through initial math, formatting and endian bytes, with selected C/C++/Rust calls in both directions, allocation failures and exact cleanup. The framing correctness gate also passes.
+
+JSON, files/paths/clocks, synchronous TCP and independent application acceptance remain later work. This platform decision does not cancel the remaining Windows roadmap or announce a public release. Implementation, detailed evidence and binaries stay private.
+
 ## October 30, 2026 - Initial math, formatting and byte facilities verified on Windows
 
 The source library now includes initial scalar and complex math, typed number/boolean formatting, exact hexadecimal float text and checked endian byte operations. Selected Windows x64 checks pass with unoptimized and optimized output in AOT and optional JIT execution. Independent vectors cover numeric edge cases, signed zero, format round trips, byte order, truncation and overflow.

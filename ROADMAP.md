@@ -7,16 +7,17 @@ promises.
 | Milestone | Intended result | Status |
 |---|---|---|
 | Developer toolchain foundation | Check required native tools and run a mixed C/C++/Rust native-toolchain smoke test | Verified, limited to the Windows development environment |
-| Native compiler | Compile and run Crust programs and projects on Windows x64 and Fedora KDE 44 x86_64 | Core Windows subset and scoped Fedora native AOT/JIT acceptance verified; broader platform acceptance remains pending |
-| Optional JIT execution | Execute checked Crust programs and tests through an opt-in native JIT path | Selected Windows x64 and Fedora x64 execution, interface and lifecycle checks verified; AOT remains the default |
-| C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected interfaces verified on Windows and Fedora AOT/JIT in all six call directions, including scalar/span and exact resource cleanup checks |
+| Native compiler | Compile and run Crust programs and projects on Windows x64 | Core Windows subset verified; Linux support withdrawn |
+| Optional JIT execution | Execute checked Crust programs and tests through an opt-in native JIT path | Selected Windows x64 execution, interface and lifecycle checks verified; AOT remains the default |
+| C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected interfaces verified on Windows AOT/JIT in all six call directions, including scalar/span and exact resource cleanup checks |
 | Checked resources | Demonstrate records, scoped borrowing, ownership, errors, cleanup, and explicit unsafe boundaries | Selected checks verified on Windows x64 with unoptimized and optimized output |
 | SDR: The Works v3 application proof | Exercise a bounded offline P25 Phase 2 framing slice | Selected synthetic framing verified on Windows x64; full receiver and host compatibility remain unverified |
 | Broader SDR: The Works v3 | Rebuild broader receiver behavior and add future features | Planned |
 | Private prerelease | Verify the compiler and application proof in a clean Windows environment | Planned |
 
 The interoperability and resource results are limited to selected synthetic
-interfaces and checks in the documented Windows and Fedora environments.
+interfaces and checks in the documented Windows environment. Earlier Fedora
+results remain historical; Linux support was withdrawn on October 31, 2026.
 Framing remains verified on Windows. A
 Crust-native P25 decoder, voice and security correctness, live hardware,
 full receiver behavior, host compatibility, clean-environment packaging, and
@@ -34,11 +35,11 @@ compiler or library behavior.
 
 | Area | Intended result | Status |
 | --- | --- | --- |
-| Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT; explicit private record fields and encapsulated public types verified on Windows and Fedora AOT/JIT with unoptimized and optimized output |
+| Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT; explicit private record fields and encapsulated public types verified on Windows AOT/JIT with unoptimized and optimized output |
 | Reusable abstractions | Generic algorithms and data types with static constraints | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
 | Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages and static/shared library builds verified on Windows x64 in AOT/JIT with unoptimized and optimized output; initial buffers/vectors verified on Windows, remaining standard facilities planned |
-| Portable targets | Separate host-target identities, locks and build outputs | Selected Windows x64 and scoped Fedora native AOT/JIT acceptance verified; complete standard-library acceptance remains pending |
-| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Typed owning storage verified on Windows and Fedora AOT/JIT; selected buffers, vectors, UTF-8 strings, bounded queue, ordered map, initial math, typed formatting and endian bytes verified on Windows AOT/JIT, with their Fedora checks and remaining facilities pending |
+| Windows host projects | Separate explicit host-target locks and build outputs | Windows x64 verified; Linux support removed |
+| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Typed owning storage verified on Windows AOT/JIT; selected buffers, vectors, UTF-8 strings, bounded queue, ordered map, initial math, typed formatting and endian bytes verified on Windows AOT/JIT, with remaining facilities and integrated application acceptance pending |
 | Concurrency | Safe threads, communication and native integration lifetimes | Planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
 | General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |

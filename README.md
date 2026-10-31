@@ -6,7 +6,7 @@
 
 I'm building Crust, an experimental native systems language with C-style syntax
 and `.cru` source files, with a focus on interoperability with C, C++, and Rust.
-Windows x64 is the initial target.
+Windows x64 is the supported target.
 
 I'm documenting verified milestones and remaining work publicly here at Crust
 Progress. Implementation remains private during development.
@@ -35,25 +35,21 @@ experiments and external test fixtures.
 
 ## Current status
 
-**Native build checks pass on Fedora KDE 44 x86_64.** Selected programs,
-static libraries and shared libraries execute with unoptimized and optimized
-output. Independent C, C++ and Rust consumers and providers exercise calls in
-both directions. Package dependencies, locked inputs, relocation, selected
-cleanup checks and failed-build preservation are covered. Windows native and optional JIT regressions pass on the current implementation through typed owning storage. The remaining selected
-scalar/span and exact resource cleanup checks now pass on Fedora, completing the
-scoped native-build acceptance step. Optional Linux JIT execution now passes
-selected interface, lifecycle, lock and relocation checks at both optimization
-levels. Public Crust types can also hide private representation and native
-owners, with access and cleanup checks verified on Windows and Fedora AOT/JIT. Typed owning storage now passes selected allocation, initialization, ownership and cleanup checks on Windows and Fedora AOT/JIT. Further standard-library facilities remain planned. See the [storage milestone](PROGRESS.md#october-30-2026---typed-owning-storage-verified).
+**Crust now supports Windows x64 only.** Linux support has been withdrawn and
+removed from the implementation. Earlier Fedora milestones remain historical
+results for their recorded revisions. See the [platform update](PROGRESS.md#october-31-2026---windows-only-development).
 
-Checked storage views, ownership transfers, reusable byte buffers, generic vectors, owned UTF-8 strings, a bounded queue and an ordered map also pass selected Windows AOT/JIT checks; native Fedora verification of those additions remains pending. See the [collection milestone](PROGRESS.md#october-30-2026---reusable-buffers-and-vectors-verified-on-windows).
+Selected Windows AOT and optional JIT checks cover private record fields, typed
+owning storage, checked views/transfers, reusable buffers/vectors, owned UTF-8
+strings, a bounded queue, an ordered map, initial scalar/complex math, typed
+formatting and checked endian bytes. Independent models, allocation failures,
+ownership rejection and exact native cleanup are covered with unoptimized and
+optimized output. Selected C/C++/Rust interfaces work in both directions.
 
-Initial scalar/complex math, typed formatting and checked endian bytes also pass selected Windows AOT/JIT checks, including both directions with C/C++/Rust. Their native Fedora acceptance remains pending. See the [numeric-library milestone](PROGRESS.md#october-30-2026---initial-math-formatting-and-byte-facilities-verified-on-windows).
-
-**Portable target groundwork is exercised on Windows and Fedora.** Opt-in
-projects isolate target locks and build outputs, preserve existing Windows
-behavior, and reject incompatible inputs. The earlier [platform milestone](PROGRESS.md#october-29-2026---portable-target-foundation)
-records the original Windows checkpoint.
+Version-2 host projects retain separate Windows locks and build outputs;
+incompatible targets and artifacts reject. JSON, files/paths/clocks, synchronous
+TCP and independent application acceptance remain planned. There is no public
+compiler or binary release.
 
 **Reusable packages and Windows libraries are verified on Windows x64.**
 Projects share code through local package dependencies with explicit public
@@ -80,7 +76,7 @@ optimized output. Existing native interfaces remain compatible. See the
 **Opt-in JIT execution is also verified on Windows x64.** Existing ahead-of-time
 execution remains the default. Selected C/C++/Rust interfaces, checked failures,
 resource cleanup and native-library lifecycle checks pass in both modes. The
-compiler suite now passes 254 tests. See the separate
+earlier JIT checkpoint passed 254 tests. See the separate
 [whole-process AOT/JIT comparison](JIT-COMPARISON.md) for the earlier measured
 results and limits. A later October 28 pass kept three improvements against
 the previous Crust compiler: pure JIT programs skip an extra support library,
