@@ -62,27 +62,29 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: Phase 6 concurrency acceptance complete
+## Latest verified milestone: reusable processing subset
 
-**November 1, 2026 — the selected ownership-safe concurrency and native callback scope is verified on Windows x64.**
+**November 1, 2026 — gain, mute, clipping, real and complex FIR, phase discrimination, and bit packing are verified on Windows x64.**
 
-Independent programs now exercise owned file/JSON processing through bounded
-worker channels and queued events from C, C++, and Rust native producers.
-Unoptimized and optimized AOT/JIT checks cover repeated startup/shutdown,
-saturation, cancellation, failed construction, cleanup retry and exact ownership.
+Unoptimized and optimized AOT/JIT checks cover empty and single-element input,
+irregular chunks, reset, malformed input, insufficient capacity, and allocation
+failure. Bit results and defined level behavior match exactly. Filter and phase
+tolerances were frozen before those checks.
 
-The existing compiler, library, native-interface and framing checks remain
-passing. Phase 6 is complete for its supported scope. Work stops before Phase 7.
+CRC, Hamming and Golay codecs, soft decisions, separate processing consumers,
+and performance campaigns remain later work. The receiver rebuild and public
+release remain separate future steps.
 
-[Read the milestone and its scope →](PROGRESS.md#november-1-2026---phase-6-independent-concurrency-acceptance-complete)
+[Read the milestone and its scope →](PROGRESS.md#november-1-2026---reusable-processing-subset-verified)
 
 ## What's next
 
-Phase 6 is complete for the selected Windows scope. Reusable processing libraries
-remain planned for Phase 7; that work has not started. The full receiver rebuild,
-broader usability work and public release remain separate future steps.
+The verified processing subset leaves CRC, Hamming, Golay, soft decisions,
+separate processing consumers, and performance campaigns for later Phase 7
+work. The full receiver rebuild, broader usability work, and public release
+remain separate future steps.
 
-Further processing libraries, developer tools and broader application
+The remaining processing libraries, developer tools, and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).
 Public release is a separate readiness review; no release date is announced.
 

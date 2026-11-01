@@ -1,5 +1,22 @@
 # Crust Progress Journal
 
+## November 1, 2026 - Reusable processing subset verified
+
+Selected processing libraries are verified on Windows x64. The subset covers
+gain, mute, and clipping, real and complex finite impulse response filters,
+phase discrimination, and bit packing.
+
+Unoptimized and optimized ahead-of-time and just-in-time checks cover empty
+and single-element input, irregular chunks, reset, malformed input,
+insufficient capacity, and allocation failure. Bit results and defined level
+behavior match exactly. Filter and phase tolerances were frozen before those
+checks. The checks detect broken history, bit order, and cleanup.
+
+CRC, Hamming and Golay codecs, soft decisions, separate processing consumers,
+and performance campaigns remain later Phase 7 work. The receiver rebuild and
+public release remain separate future steps. Implementation, detailed evidence,
+and binaries remain private.
+
 ## November 1, 2026 - Phase 6 independent concurrency acceptance complete
 
 Phase 6's selected ownership-safe concurrency and native callback scope is now
