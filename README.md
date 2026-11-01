@@ -62,30 +62,28 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: reusable processing subset
+## Latest verified milestone: reusable processing libraries
 
-**November 1, 2026 — gain, mute, clipping, real and complex FIR, phase discrimination, and bit packing are verified on Windows x64.**
+**November 1, 2026 — gain, mute, clipping, real and complex FIR, phase discrimination, bit packing, CRC, Hamming, Golay, and bounded soft decisions are verified on Windows x64.**
 
 Unoptimized and optimized AOT/JIT checks cover empty and single-element input,
-irregular chunks, reset, malformed input, insufficient capacity, and allocation
-failure. Bit results and defined level behavior match exactly. Filter and phase
-tolerances were frozen before those checks.
+irregular chunks, reset, malformed input, known codec answers, and independent
+C, C++, and Rust programs. A same-machine baseline compared representative
+cases with a local native control. Some cases were slower. That baseline is
+one sample and is not the performance qualification.
 
-CRC, Hamming and Golay codecs, soft decisions, separate processing consumers,
-and performance campaigns remain later work. The receiver rebuild and public
-release remain separate future steps.
+The receiver rebuild and public release remain separate future steps.
 
-[Read the milestone and its scope →](PROGRESS.md#november-1-2026---reusable-processing-subset-verified)
+[Read the milestone and its scope →](PROGRESS.md#november-1-2026---reusable-processing-libraries-verified)
 
 ## What's next
 
-The verified processing subset leaves CRC, Hamming, Golay, soft decisions,
-separate processing consumers, and performance campaigns for later Phase 7
+The verified processing libraries leave the performance qualification for later
 work. The full receiver rebuild, broader usability work, and public release
 remain separate future steps.
 
-The remaining processing libraries, developer tools, and broader application
-demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).
+Developer tools and broader application demonstrations remain on the
+[roadmap](ROADMAP.md#general-purpose-language-growth).
 Public release is a separate readiness review; no release date is announced.
 
 ## A future proving ground: SDR: The Works

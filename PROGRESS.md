@@ -1,5 +1,22 @@
 # Crust Progress Journal
 
+## November 1, 2026 - Reusable processing libraries verified
+
+Selected processing libraries are verified on Windows x64. The subset covers
+gain, mute, and clipping, real and complex finite impulse response filters,
+phase discrimination, bit packing, CRC, Hamming and Golay codecs, and bounded
+soft-decision checks.
+
+Unoptimized and optimized ahead-of-time and just-in-time checks cover empty
+and single-element input, irregular chunks, reset, malformed input, known
+codec answers, and independent programs that call the libraries from C, C++,
+and Rust. A same-machine baseline compared representative cases with a local
+native control. Some cases were slower. That baseline is one sample and is
+not the performance qualification.
+
+The receiver rebuild and public release remain separate future steps.
+Implementation, detailed evidence, and binaries remain private.
+
 ## November 1, 2026 - Future application direction clarified
 
 Crust remains an independent, general-purpose programming language intended for
@@ -10,7 +27,7 @@ interfaces. Existing integrations remain until replacements are verified.
 
 This records a planning decision. It adds no compiler, receiver or hardware
 capability, does not start the full rebuild, and makes no public release or
-licensing change. The latest verified processing milestone is recorded below.
+licensing change. The later verified processing milestone is recorded above.
 
 ## November 1, 2026 - Reusable processing subset verified
 
