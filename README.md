@@ -62,25 +62,26 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: retained native callbacks
+## Latest verified milestone: executable lifetime safeguards
 
-**October 31, 2026 — selected retained callback checks pass on Windows x64.**
+**November 1, 2026 — selected shutdown and native-library checks pass on Windows x64.**
 
-C, C++, and Rust can keep selected typed Crust callbacks registered with owned
-context. Unoptimized and optimized AOT/JIT checks cover concurrent native
-producers, cancellation, partial registration, errors/unwinds and exact cleanup.
-Failed cleanup retains ownership for retry, including cleanup tied to a worker.
+Owned work and native callbacks retain executable code when cleanup needs retry.
+Selected C, C++, and Rust hosts exercise explicit library shutdown, including
+repeated load/unload and cleanup on the owning native thread. Optimized and
+unoptimized AOT/JIT checks preserve callback lifetime through native teardown.
 
-Existing compiler, library, native-interface and framing checks also pass.
-Broader retirement integration and independent acceptance remain Phase 6 work.
+Locked builds reject changed native threading contracts. Existing compiler,
+library, native-interface and framing checks also pass. Independent integrated
+consumers remain the final Phase 6 acceptance work.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---retained-native-callbacks-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#november-1-2026---executable-lifetime-and-native-shutdown-verified)
 
 ## What's next
 
-The next focus is broader executable-lifetime integration and independent
-concurrency acceptance. Phase 6 remains in progress. The callback milestones
-establish the selected scoped and retained behavior described above.
+The next focus is independent integrated concurrency acceptance. Phase 6 remains
+in progress. The verified callback and shutdown milestones establish the selected
+behavior described above; Phase 7 has not started.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).

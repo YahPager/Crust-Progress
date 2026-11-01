@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## November 1, 2026 - Executable lifetime and native shutdown verified
+
+Selected shutdown checks now cover owned work, retained callbacks and executable
+code together on Windows x64. A failed shutdown preserves ownership and code for
+explicit retry. Automatic JIT teardown respects the recorded shutdown result.
+
+C, C++, and Rust native hosts exercise static and shared libraries at optimized
+and unoptimized levels, including repeated DLL load/unload. Checks keep a native
+owner thread alive through failed cleanup and verify final destruction on that
+thread before exit. Native teardown retains working callbacks until executable
+code can be released; new asynchronous work rejects after retirement begins.
+
+Locked builds reject changes to native threading contracts and their bindings.
+Reports distinguish supported contracts from unsupported prebuilt cases.
+Existing compiler, library, native-interface and framing checks also pass.
+
+Phase 6 remains in progress. Independent integrated consumers and final delivery
+remain pending. Phase 7 has not started. Implementation, detailed evidence and
+binaries remain private.
+
 ## October 31, 2026 - Retained native callbacks verified on Windows
 
 Selected C, C++, and Rust interfaces now retain typed Crust callbacks with owned
