@@ -62,26 +62,25 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: executable lifetime safeguards
+## Latest verified milestone: Phase 6 concurrency acceptance complete
 
-**November 1, 2026 — selected shutdown and native-library checks pass on Windows x64.**
+**November 1, 2026 — the selected ownership-safe concurrency and native callback scope is verified on Windows x64.**
 
-Owned work and native callbacks retain executable code when cleanup needs retry.
-Selected C, C++, and Rust hosts exercise explicit library shutdown, including
-repeated load/unload and cleanup on the owning native thread. Optimized and
-unoptimized AOT/JIT checks preserve callback lifetime through native teardown.
+Independent programs now exercise owned file/JSON processing through bounded
+worker channels and queued events from C, C++, and Rust native producers.
+Unoptimized and optimized AOT/JIT checks cover repeated startup/shutdown,
+saturation, cancellation, failed construction, cleanup retry and exact ownership.
 
-Locked builds reject changed native threading contracts. Existing compiler,
-library, native-interface and framing checks also pass. Independent integrated
-consumers remain the final Phase 6 acceptance work.
+The existing compiler, library, native-interface and framing checks remain
+passing. Phase 6 is complete for its supported scope. Work stops before Phase 7.
 
-[Read the milestone and its scope →](PROGRESS.md#november-1-2026---executable-lifetime-and-native-shutdown-verified)
+[Read the milestone and its scope →](PROGRESS.md#november-1-2026---phase-6-independent-concurrency-acceptance-complete)
 
 ## What's next
 
-The next focus is independent integrated concurrency acceptance. Phase 6 remains
-in progress. The verified callback and shutdown milestones establish the selected
-behavior described above; Phase 7 has not started.
+Phase 6 is complete for the selected Windows scope. Reusable processing libraries
+remain planned for Phase 7; that work has not started. The full receiver rebuild,
+broader usability work and public release remain separate future steps.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).

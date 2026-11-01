@@ -1,5 +1,25 @@
 # Crust Progress Journal
 
+## November 1, 2026 - Phase 6 independent concurrency acceptance complete
+
+Phase 6's selected ownership-safe concurrency and native callback scope is now
+verified on Windows x64, through independent programs as well as boundary tests.
+One program reads synthetic file/JSON work, distributes owned data through
+bounded channels and checks worker results. Another queues events from C, C++,
+and Rust native producers into Crust consumers with controlled shutdown.
+
+Unoptimized and optimized AOT/JIT checks cover one, two and four workers and
+producers, capacities one, two and eight, empty and saturated inputs, boundary
+sizes and repeated startup/shutdown. Failure checks cover allocation, startup,
+registration, cancellation, explicit cleanup retry and exact destruction.
+Deliberately broken cleanup and shutdown behavior is detected by the checks.
+
+The compiler, standard library, native-interface and framing regression checks
+remain passing. This completes Phase 6 for its supported scope and stops before
+Phase 7. Prebuilt callback providers and coordinated prebuilt component shutdown
+remain unsupported. The full receiver rebuild and public release remain future
+work; implementation, detailed evidence and binaries remain private.
+
 ## November 1, 2026 - Executable lifetime and native shutdown verified
 
 Selected shutdown checks now cover owned work, retained callbacks and executable
