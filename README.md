@@ -50,6 +50,9 @@ remains private during development, and no compiler download is available yet.
 - **Use scoped native callbacks.** Selected C, C++, and Rust calls invoke typed
   Crust callbacks on the calling thread with borrowed context, checked reentry,
   error handling and deterministic cleanup in Windows AOT/JIT.
+- **Keep native callbacks registered safely.** Selected C, C++, and Rust
+  registrations own their context, support checked cleanup retries and drain
+  concurrent native calls before destruction in Windows AOT/JIT checks.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -59,26 +62,25 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: scoped native callbacks
+## Latest verified milestone: retained native callbacks
 
-**October 31, 2026 — selected scoped callback checks pass on Windows x64.**
+**October 31, 2026 — selected retained callback checks pass on Windows x64.**
 
-C, C++, and Rust can invoke typed Crust callbacks during a native call on its
-calling thread. Unoptimized and optimized AOT/JIT checks cover borrowed context,
-readonly reentry, exclusive reentry rejection, wrong-thread rejection, errors,
-exceptions/panics and exact cleanup, including partial setup failures.
+C, C++, and Rust can keep selected typed Crust callbacks registered with owned
+context. Unoptimized and optimized AOT/JIT checks cover concurrent native
+producers, cancellation, partial registration, errors/unwinds and exact cleanup.
+Failed cleanup retains ownership for retry, including cleanup tied to a worker.
 
 Existing compiler, library, native-interface and framing checks also pass.
-Retained callbacks and integrated acceptance remain later Phase 6 work.
+Broader retirement integration and independent acceptance remain Phase 6 work.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---scoped-native-callbacks-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---retained-native-callbacks-verified-on-windows)
 
 ## What's next
 
-The next focus is retained native callback lifetimes and integrated concurrency
-acceptance. Phase 6 is in progress; these facilities still need implementation
-and verification. Scoped callbacks establish only the caller-thread behavior
-described above.
+The next focus is broader executable-lifetime integration and independent
+concurrency acceptance. Phase 6 remains in progress. The callback milestones
+establish the selected scoped and retained behavior described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).
