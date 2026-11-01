@@ -43,8 +43,8 @@ compiler or library behavior.
 | Concurrency | Safe threads, communication and native integration lifetimes | Phase 6 in progress; selected function references, owned workers, cooperative stop, shared/weak ownership, primitive atomics with explicit ordering/fences, mutex guards, reader/writer locks, bounded channels and scoped caller-thread callbacks verified on Windows AOT/JIT; retained callbacks and integrated acceptance remain planned |
 | Processing libraries | Selected reusable numerical and protocol components | Planned |
 | General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Planned |
-| Measured optimization (Phase 9) | Improve demonstrated compiler, runtime and library bottlenecks | Planned; preserve correctness and safety checks |
-| Independent performance validation (Phase 10) | Target runtime within 2.5% of each test's fastest qualifying competitor on this same machine | Planned; repeated local results determine acceptance, with other-machine results shown separately as references |
+| Measured optimization | Improve demonstrated compiler, runtime and library bottlenecks | Planned; preserve correctness and safety checks |
+| Independent performance validation | Target runtime within 2.5% of each test's fastest qualifying competitor on this same machine | Planned; repeated local results determine acceptance, with other-machine results shown separately as references |
 
 The full SDRTW v3 rebuild stays deferred while Crust matures and v2e development
 continues. Receiver work is one future test of the language. Readiness for
