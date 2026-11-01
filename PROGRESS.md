@@ -1,5 +1,23 @@
 # Crust Progress Journal
 
+## November 1, 2026 - Application and tooling checkpoint
+
+General-usability work is underway on Windows x64. Fresh file-processing,
+bounded local TCP/JSON, and synthetic streaming programs pass selected
+unoptimized and optimized ahead-of-time and just-in-time checks. Those checks
+include independent expected results, malformed input, selected cleanup paths,
+and reusable streaming storage.
+
+Selected formatting checks verify preserved source content, repeatable output,
+and a check-only mode that leaves files unchanged. Unsaved-source analysis
+checks cover compiler diagnostics, repaired input, and Unicode source locations.
+
+This is a partial implementation checkpoint, not completion of the usability
+phase. Editor navigation and integration, an independent usability trial,
+broader failure coverage, and the full phase regression gate remain unfinished.
+No performance qualification, receiver rebuild, or public release is claimed.
+Implementation, detailed evidence, and binaries remain private.
+
 ## November 1, 2026 - Reusable processing libraries verified
 
 Selected processing libraries are verified on Windows x64. The subset covers
