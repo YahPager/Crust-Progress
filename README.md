@@ -98,6 +98,11 @@ That proof is one step toward a future SDR: The Works v3 rebuild. Live hardware,
 voice and security correctness, a complete receiver and host compatibility
 remain unverified. The full rebuild stays deferred while Crust matures.
 
+The agreed direction is to build v3 as a separate application with its features
+implemented in Crust wherever practical and minimal third-party dependencies.
+Future replacements of existing integrations will need their own verification.
+Crust's general-purpose development and public readiness remain independent.
+
 [Read the offline proof →](PROGRESS.md#october-28-2026---sdrtw-offline-framing-times-and-memory)
 
 ## Measured comparisons across languages

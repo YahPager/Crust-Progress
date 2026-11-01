@@ -1,5 +1,17 @@
 # Crust Progress Journal
 
+## November 1, 2026 - Future application direction clarified
+
+Crust remains an independent, general-purpose programming language intended for
+eventual public use. SDR: The Works v3 is a separate future application built
+with it. The agreed direction is to implement application features in Crust
+wherever practical, with minimal third-party dependencies and explicit platform
+interfaces. Existing integrations remain until replacements are verified.
+
+This records a planning decision. It adds no compiler, receiver or hardware
+capability, does not start the full rebuild, and makes no public release or
+licensing change. The latest verified processing milestone is recorded below.
+
 ## November 1, 2026 - Reusable processing subset verified
 
 Selected processing libraries are verified on Windows x64. The subset covers
