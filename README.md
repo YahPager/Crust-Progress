@@ -47,6 +47,9 @@ remains private during development, and no compiler download is available yet.
 - **Transfer owned values through bounded channels.** Selected communication
   checks cover multiple producers and consumers, explicit outcomes, deadlines,
   cancellation, disconnection and exact cleanup in Windows AOT/JIT.
+- **Use scoped native callbacks.** Selected C, C++, and Rust calls invoke typed
+  Crust callbacks on the calling thread with borrowed context, checked reentry,
+  error handling and deterministic cleanup in Windows AOT/JIT.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -56,28 +59,26 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest verified milestone: bounded channels and checked outcomes
+## Latest verified milestone: scoped native callbacks
 
-**October 31, 2026 — selected bounded channel checks pass on Windows x64.**
+**October 31, 2026 — selected scoped callback checks pass on Windows x64.**
 
-Multiple producers and consumers exchange owned values through fixed-capacity
-channels. Unoptimized and optimized AOT/JIT checks cover independent value
-traces, saturation, cancellation, deadlines, disconnection and exact cleanup.
-Failed sends return their unsent value for explicit handling. Prepared
-operations, including blocked waits, pass no-allocation checks.
+C, C++, and Rust can invoke typed Crust callbacks during a native call on its
+calling thread. Unoptimized and optimized AOT/JIT checks cover borrowed context,
+readonly reentry, exclusive reentry rejection, wrong-thread rejection, errors,
+exceptions/panics and exact cleanup, including partial setup failures.
 
 Existing compiler, library, native-interface and framing checks also pass.
-Native callbacks and integrated acceptance remain later Phase 6 work. Earlier
-ownership, atomic and lock milestones remain in the journal.
+Retained callbacks and integrated acceptance remain later Phase 6 work.
 
-[Read the milestone and its scope →](PROGRESS.md#october-31-2026---bounded-channels-and-checked-outcomes-verified-on-windows)
+[Read the milestone and its scope →](PROGRESS.md#october-31-2026---scoped-native-callbacks-verified-on-windows)
 
 ## What's next
 
-The next focus is native callback lifetimes and integrated concurrency
+The next focus is retained native callback lifetimes and integrated concurrency
 acceptance. Phase 6 is in progress; these facilities still need implementation
-and verification. The channel milestone establishes the selected communication
-and cleanup behavior described above.
+and verification. Scoped callbacks establish only the caller-thread behavior
+described above.
 
 Further processing libraries, developer tools and broader application
 demonstrations remain on the [roadmap](ROADMAP.md#general-purpose-language-growth).

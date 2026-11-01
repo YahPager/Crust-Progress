@@ -1,5 +1,23 @@
 # Crust Progress Journal
 
+## October 31, 2026 - Scoped native callbacks verified on Windows
+
+Selected C, C++, and Rust interfaces now invoke typed Crust callbacks during
+native calls on the calling thread. Windows x64 checks pass in unoptimized and
+optimized ahead-of-time and optional JIT execution, including scalar values,
+buffers and records with borrowed context.
+
+Checks cover readonly reentry, exclusive reentry rejection, wrong-thread calls,
+saved callbacks rejected between calls, source errors, C++ exceptions and Rust
+panics. Partial setup and allocation failures preserve ownership and exact
+cleanup. Invalid context lifetimes, signatures, visibility and thread transfers
+are rejected. Deliberately broken entry and cleanup checks are detected. Existing
+compiler, library, native-interface and framing regression checks also pass.
+
+Phase 6 remains in progress. Retained callbacks, broader retirement integration
+and independent integrated consumers remain pending. Implementation, detailed
+evidence and binaries remain private.
+
 ## October 31, 2026 - Bounded channels and checked outcomes verified on Windows
 
 Selected fixed-capacity channels now pass Windows x64 checks in unoptimized
