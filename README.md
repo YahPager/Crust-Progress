@@ -53,6 +53,9 @@ remains private during development, and no compiler download is available yet.
 - **Keep native callbacks registered safely.** Selected C, C++, and Rust
   registrations own their context, support checked cleanup retries and drain
   concurrent native calls before destruction in Windows AOT/JIT checks.
+- **Edit with tool support.** A formatter and a language server with a private
+  VS Code integration provide diagnostics, definition, completion and
+  formatting, verified on Windows x64.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
@@ -62,29 +65,27 @@ These results cover the subsets and environments recorded in the
 [progress journal](PROGRESS.md). They do not establish unrestricted library
 compatibility or a finished language.
 
-## Latest checked progress: applications and editing foundations
+## Latest checked progress: general usability tools and demonstrations
 
-**November 1, 2026 — selected application and developer-tool checks pass on Windows x64.**
+**November 1, 2026 — developer tools and three demonstration programs pass Windows x64 checks.**
 
-Fresh file-processing, bounded local TCP/JSON, and synthetic streaming programs
-pass selected unoptimized and optimized AOT/JIT checks. Formatting checks cover
-preserved source content and repeatable results. Unsaved-source analysis checks
-cover diagnostics and Unicode locations.
+A file-summary command, a bounded local TCP/JSON service and a worker-thread
+streaming pipeline pass unoptimized and optimized AOT/JIT checks. The checks
+include failure injection and exact cleanup. A formatter, a language server
+with a private VS Code integration, and exercised tutorials are in place.
+Independent agent trials completed builds and changes from the documentation
+alone; an interactive editor walkthrough by a person remains open.
 
-The general-usability phase is incomplete. Editor integration, the independent
-usability trial, broader failure checks, and full phase acceptance remain open.
-The receiver rebuild and public release remain separate future steps.
+The receiver rebuild, performance qualification and public release remain
+separate future steps.
 
-[Read the checkpoint and its scope →](PROGRESS.md#november-1-2026---application-and-tooling-checkpoint)
+[Read the milestone and its scope →](PROGRESS.md#november-1-2026---general-usability-tools-and-demonstrations-verified)
 
 ## What's next
 
 The verified processing libraries leave the performance qualification for later
-work. The full receiver rebuild, broader usability work, and public release
-remain separate future steps.
-
-Developer tools and broader application demonstrations remain on the
-[roadmap](ROADMAP.md#general-purpose-language-growth).
+work. The full receiver rebuild and public release remain separate future
+steps; see the [roadmap](ROADMAP.md#general-purpose-language-growth).
 Public release is a separate readiness review; no release date is announced.
 
 ## A future proving ground: SDR: The Works

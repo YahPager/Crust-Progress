@@ -1,5 +1,37 @@
 # Crust Progress Journal
 
+## November 1, 2026 - General usability tools and demonstrations verified
+
+The general-usability phase passed its integrated checks on Windows x64, with
+one acceptance step still open. Three fresh demonstration programs now pass
+unoptimized and optimized ahead-of-time and just-in-time checks:
+
+- a file-summary command
+- a bounded local TCP/JSON service
+- a worker-thread streaming pipeline
+
+Those checks cover independent expected results, size limits, timeouts,
+cancellation, worker failure, injected allocation and startup failures, and
+exact resource cleanup.
+
+Developers now have:
+
+- **A formatter:** it keeps the author's own spacing, comments and token order.
+- **A language server:** diagnostics while typing, go to definition,
+  completion and formatting.
+- **A private Visual Studio Code integration:** verified in a real editor
+  host.
+- **Setup documentation and three tutorials:** every documented command is
+  run automatically from a relocated copy.
+
+Two fresh, independent agent trials built and ran every program from the
+documentation alone. They extended a summary, changed a service response and
+changed filter coefficients, each with updated checks. The problems they
+found were fixed. An interactive editor walkthrough by a person remains open.
+
+No performance qualification, receiver rebuild, or public release is claimed.
+Implementation, detailed evidence, and binaries remain private.
+
 ## November 1, 2026 - Application and tooling checkpoint
 
 General-usability work is underway on Windows x64. Fresh file-processing,
