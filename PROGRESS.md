@@ -2,8 +2,8 @@
 
 ## November 1, 2026 - General usability tools and demonstrations verified
 
-The general-usability phase passed its integrated checks on Windows x64, with
-one acceptance step still open. Three fresh demonstration programs now pass
+The general-usability phase passed its integrated checks on Windows x64.
+Three fresh demonstration programs now pass
 unoptimized and optimized ahead-of-time and just-in-time checks:
 
 - a file-summary command
@@ -27,7 +27,9 @@ Developers now have:
 Two fresh, independent agent trials built and ran every program from the
 documentation alone. They extended a summary, changed a service response and
 changed filter coefficients, each with updated checks. The problems they
-found were fixed. An interactive editor walkthrough by a person remains open.
+found were fixed. A guided walkthrough by a person in the editor then passed:
+diagnostics, go to definition, completion and formatting all worked. The
+setup notes and formatter layout gaps it exposed were fixed and rechecked.
 
 No performance qualification, receiver rebuild, or public release is claimed.
 Implementation, detailed evidence, and binaries remain private.

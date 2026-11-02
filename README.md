@@ -74,7 +74,7 @@ streaming pipeline pass unoptimized and optimized AOT/JIT checks. The checks
 include failure injection and exact cleanup. A formatter, a language server
 with a private VS Code integration, and exercised tutorials are in place.
 Independent agent trials completed builds and changes from the documentation
-alone; an interactive editor walkthrough by a person remains open.
+alone, and a guided editor walkthrough by a person passed.
 
 The receiver rebuild, performance qualification and public release remain
 separate future steps.
