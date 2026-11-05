@@ -1,5 +1,28 @@
 # Crust Progress Journal
 
+## November 5, 2026 - SDRTW v3 application work in progress
+
+SDR: The Works v3 is a separate application being built with Crust. It is no
+longer only a planned rebuild. The work is private and on Windows x64.
+
+Offline checks have passed for synthetic voice admission and PCM, Phase 1 and
+Phase 2 framing, three declared demodulation rows, and file replay to WAV.
+Airspy setup and capture have passed with a stand-in device. No radio has
+been connected, and those checks do not establish live reception.
+
+The slice in progress is Windows playback of prepared audio. Crust owns the
+sample conversion, level and queue decision. A narrow Windows endpoint plays
+one explicit shared-mode format and rejects any other. Focused conversion
+checks pass without using a speaker as the oracle. One real playback endpoint
+on the development machine has consumed a prepared buffer, confirmed from the
+device clock rather than from a file length.
+
+That slice is not closed. The full application regression is still open. The
+receiver is not connected to the speaker. Playback does not show that speech
+is intelligible, that a signal is locked, or that a physical sample rate was
+measured. Live hardware, a finished receiver and a public release remain
+separate. Implementation, detailed evidence and binaries remain private.
+
 ## November 1, 2026 - General usability tools and demonstrations verified
 
 The general-usability phase passed its integrated checks on Windows x64.

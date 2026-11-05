@@ -81,29 +81,50 @@ separate future steps.
 
 [Read the milestone and its scope →](PROGRESS.md#november-1-2026---general-usability-tools-and-demonstrations-verified)
 
+## What is happening now
+
+**November 5, 2026 — SDR: The Works v3 is in progress on Windows.**
+
+Offline synthetic reception has passed its recorded checks, including voice
+admission, Phase 1 and Phase 2 framing, three declared demodulation rows and
+file replay to WAV. Airspy setup and capture have passed with a stand-in
+device. No radio has been connected.
+
+The current slice is Windows playback of prepared audio. Crust decides the
+conversion, level and queue. One explicit playback format is accepted.
+Focused conversion checks and one real-endpoint consumption check have passed
+on the development machine. The full regression is still open, so this slice
+is not closed. The receiver is not connected to the speaker, and playback
+does not establish intelligible speech, a locked signal or a measured
+physical sample rate.
+
+[Read the current status →](PROGRESS.md#november-5-2026---sdrtw-v3-application-work-in-progress)
+
 ## What's next
 
-The verified processing libraries leave the performance qualification for later
-work. The full receiver rebuild and public release remain separate future
-steps; see the [roadmap](ROADMAP.md#general-purpose-language-growth).
-Public release is a separate readiness review; no release date is announced.
+Performance qualification and a public release remain separate later steps.
+Live radio hardware has not started. See the
+[roadmap](ROADMAP.md#general-purpose-language-growth). No release date is
+announced.
 
-## A future proving ground: SDR: The Works
+## SDR: The Works v3
 
-One early application proof exercised a bounded offline P25 Phase 2 framing
-slice with synthetic inputs. Selected Windows runs checked orchestration,
-validation, reset, event routing and native-library cleanup.
+One early proof exercised a bounded offline P25 Phase 2 framing slice with
+synthetic inputs. Selected Windows runs checked orchestration, validation,
+reset, event routing and native-library cleanup.
 
-That proof is one step toward a future SDR: The Works v3 rebuild. Live hardware,
-voice and security correctness, a complete receiver and host compatibility
-remain unverified. The full rebuild stays deferred while Crust matures.
+The separate v3 application has continued since that proof. Features are
+implemented in Crust wherever practical, with minimal third-party
+dependencies. Existing integrations remain until a replacement has its own
+checks. Crust's general-purpose development and public readiness stay
+independent of the receiver.
 
-The agreed direction is to build v3 as a separate application with its features
-implemented in Crust wherever practical and minimal third-party dependencies.
-Future replacements of existing integrations will need their own verification.
-Crust's general-purpose development and public readiness remain independent.
+The offline checks use synthetic inputs. They do not establish field voice or
+security correctness. Live hardware, a complete receiver and host
+compatibility remain unverified.
 
-[Read the offline proof →](PROGRESS.md#october-28-2026---sdrtw-offline-framing-times-and-memory)
+[Read the current application status →](PROGRESS.md#november-5-2026---sdrtw-v3-application-work-in-progress)
+· [Read the original offline proof →](PROGRESS.md#october-28-2026---sdrtw-offline-framing-times-and-memory)
 
 ## Measured comparisons across languages
 

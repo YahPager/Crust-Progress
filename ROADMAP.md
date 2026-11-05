@@ -12,7 +12,7 @@ promises.
 | C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected interfaces verified on Windows AOT/JIT in all six call directions, including scalar/span and exact resource cleanup checks |
 | Checked resources | Demonstrate records, scoped borrowing, ownership, errors, cleanup, and explicit unsafe boundaries | Selected checks verified on Windows x64 with unoptimized and optimized output |
 | SDR: The Works v3 application proof | Exercise a bounded offline P25 Phase 2 framing slice | Selected synthetic framing verified on Windows x64; full receiver and host compatibility remain unverified |
-| Broader SDR: The Works v3 | Build a separate application with features implemented in Crust wherever practical and minimal third-party dependencies | Planned; existing integrations remain until replacements are verified |
+| Broader SDR: The Works v3 | Build a separate application with features implemented in Crust wherever practical and minimal third-party dependencies | In progress on Windows. Offline synthetic reception and no-hardware Airspy checks have passed. Speaker playback is open. Live hardware and a complete receiver remain unverified |
 | Private prerelease | Verify the compiler and application proof in a clean Windows environment | Planned |
 
 The interoperability and resource results are limited to selected synthetic
@@ -46,8 +46,8 @@ compiler or library behavior.
 | Measured optimization | Improve demonstrated compiler, runtime and library bottlenecks | Planned; preserve correctness and safety checks |
 | Independent performance validation | Target runtime within 2.5% of each test's fastest qualifying competitor on this same machine | Planned; repeated local results determine acceptance, with other-machine results shown separately as references |
 
-The full SDRTW v3 rebuild stays deferred while Crust matures and v2e development
-continues. Receiver work is one future test of the language. Readiness for
+The separate SDRTW v3 application is in progress on Windows. Crust's
+general-purpose work remains independent of that receiver. Readiness for
 general-purpose public use will also need evidence from independent programs.
 The existing public-readiness review remains a separate decision; this roadmap
 does not select a license, announce a release date, publish implementation or
@@ -55,7 +55,8 @@ binaries, or establish a completion percentage.
 
 The first application proof changed from BTW recorded audio to the bounded
 SDR: The Works v3 framing slice. Earlier progress entries retain the previous
-direction as a historical record. Broader v3 features remain future work.
+direction as a historical record. Broader v3 features are underway. Live
+hardware and a finished receiver remain future work.
 
 ## Status definitions
 
