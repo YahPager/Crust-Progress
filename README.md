@@ -83,22 +83,21 @@ separate future steps.
 
 ## What is happening now
 
-**November 5, 2026 — SDR: The Works v3 is in progress on Windows.**
+**November 5, 2026 — prepared Windows playback checks passed.**
 
 Offline synthetic reception has passed its recorded checks, including voice
 admission, Phase 1 and Phase 2 framing, three declared demodulation rows and
 file replay to WAV. Airspy setup and capture have passed with a stand-in
 device. No radio has been connected.
 
-The current slice is Windows playback of prepared audio. Crust decides the
-conversion, level and queue. One explicit playback format is accepted.
-Focused conversion checks and one real-endpoint consumption check have passed
-on the development machine. The full regression is still open, so this slice
-is not closed. The receiver is not connected to the speaker, and playback
-does not establish intelligible speech, a locked signal or a measured
-physical sample rate.
+Crust now prepares audio for one explicit Windows playback format. Focused
+conversion checks and one real-endpoint consumption check passed on the
+development machine, and the full unoptimized and optimized regression passed
+with them. Consumption is taken from the device clock. The receiver is not
+connected to the speaker. Playback does not establish intelligible speech, a
+locked signal or a measured physical sample rate.
 
-[Read the current status →](PROGRESS.md#november-5-2026---sdrtw-v3-application-work-in-progress)
+[Read the current status →](PROGRESS.md#november-5-2026---sdrtw-v3-prepared-playback-checks-passed)
 
 ## What's next
 
@@ -123,7 +122,7 @@ The offline checks use synthetic inputs. They do not establish field voice or
 security correctness. Live hardware, a complete receiver and host
 compatibility remain unverified.
 
-[Read the current application status →](PROGRESS.md#november-5-2026---sdrtw-v3-application-work-in-progress)
+[Read the current application status →](PROGRESS.md#november-5-2026---sdrtw-v3-prepared-playback-checks-passed)
 · [Read the original offline proof →](PROGRESS.md#october-28-2026---sdrtw-offline-framing-times-and-memory)
 
 ## Measured comparisons across languages

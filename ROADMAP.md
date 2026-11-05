@@ -12,7 +12,7 @@ promises.
 | C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected interfaces verified on Windows AOT/JIT in all six call directions, including scalar/span and exact resource cleanup checks |
 | Checked resources | Demonstrate records, scoped borrowing, ownership, errors, cleanup, and explicit unsafe boundaries | Selected checks verified on Windows x64 with unoptimized and optimized output |
 | SDR: The Works v3 application proof | Exercise a bounded offline P25 Phase 2 framing slice | Selected synthetic framing verified on Windows x64; full receiver and host compatibility remain unverified |
-| Broader SDR: The Works v3 | Build a separate application with features implemented in Crust wherever practical and minimal third-party dependencies | In progress on Windows. Offline synthetic reception and no-hardware Airspy checks have passed. Speaker playback is open. Live hardware and a complete receiver remain unverified |
+| Broader SDR: The Works v3 | Build a separate application with features implemented in Crust wherever practical and minimal third-party dependencies | In progress on Windows. Offline synthetic reception, no-hardware Airspy checks and prepared playback consumption have passed. Intelligibility and live hardware remain unverified |
 | Private prerelease | Verify the compiler and application proof in a clean Windows environment | Planned |
 
 The interoperability and resource results are limited to selected synthetic
