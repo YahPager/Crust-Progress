@@ -23,7 +23,7 @@ campaign using the original scheduling protocol:
 | N-Queens, 12 | 11,685.3 | 11,699.6 | 11,181.4 | 10,984.1 | 11,522.1 |
 | Fibonacci, 30 | 1,263.7 | 1,267.4 | 2,257.8 | 1,179.4 | 1,428.4 |
 
-All five builds use matched loop-unswitching and alignment settings. These
+These
 prepared kernels include their result digest but exclude allocation, setup
 and cleanup. Language-specific checks and call boundaries still differ.
 Both final campaigns passed 180 cross-language controls. C and Crust run as
@@ -48,8 +48,8 @@ campaigns. These are not individual-block latency measurements:
 | Rust | 149.80 | 153.52 |
 | Goose | 148.54-148.63 | 153.42 |
 
-This routing test uses each build's recorded settings, including additional
-Crust optimizations; its settings are not matched like the kernel table.
+This routing test uses each build's recorded settings; they are not matched
+like the kernel table.
 No separate C routing control was measured. The Crust row is an October 28
 Crust-only measurement of actual generated code. Its scratch time includes
 reset inside the measured call, and prepared reuse remains the default
@@ -71,7 +71,7 @@ These are medians of average processing times from nine runs per case, each
 with 128 measured streams and eight warmups, rather than worst-case latency.
 Crust took about **8% longer** than the C++ control. All **73 native and 146
 Crust cases** passed, including invalid-input, reset and cleanup checks.
-See the [measurement details and memory results](PROGRESS.md#october-28-2026---sdrtw-offline-framing-times-and-memory).
+Dated milestones are in the [progress journal](PROGRESS.md).
 
 This is a bounded offline framing proof. It does not establish a Crust-native
 P25 decoder, voice or security correctness, live hardware operation, a full

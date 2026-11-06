@@ -9,8 +9,8 @@ promises.
 | Developer toolchain foundation | Check required native tools and run a mixed C/C++/Rust native-toolchain smoke test | Verified, limited to the Windows development environment |
 | Native compiler | Compile and run Crust programs and projects on Windows x64 | Core Windows subset verified; Linux support withdrawn |
 | Optional JIT execution | Execute checked Crust programs and tests through an opt-in native JIT path | Selected Windows x64 execution, interface and lifecycle checks verified; AOT remains the default |
-| C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected interfaces verified on Windows AOT/JIT in all six call directions, including scalar/span and exact resource cleanup checks |
-| Checked resources | Demonstrate records, scoped borrowing, ownership, errors, cleanup, and explicit unsafe boundaries | Selected checks verified on Windows x64 with unoptimized and optimized output |
+| C, C++, and Rust interoperability | Call selected library interfaces and expose Crust functions to each language | Selected interfaces verified on Windows in all six call directions |
+| Checked resources | Demonstrate records, ownership, errors and cleanup | Selected checks verified on Windows x64 with unoptimized and optimized output |
 | SDR: The Works v3 application proof | Exercise a bounded offline P25 Phase 2 framing slice | Selected synthetic framing verified on Windows x64; full receiver and host compatibility remain unverified |
 | Broader SDR: The Works v3 | Build a separate application with features implemented in Crust wherever practical and minimal third-party dependencies | In progress on Windows. Offline synthetic reception, no-hardware Airspy checks and prepared playback consumption have passed. Intelligibility and live hardware remain unverified |
 | Private prerelease | Verify the compiler and application proof in a clean Windows environment | Planned |
@@ -35,14 +35,14 @@ compiler or library behavior.
 
 | Area | Intended result | Status |
 | --- | --- | --- |
-| Composable application data | Owned records, methods, tagged variants, optional values and returned views | Selected subset verified on Windows x64 in AOT/JIT; explicit private record fields and encapsulated public types verified on Windows AOT/JIT with unoptimized and optimized output |
+| Composable application data | Owned records, methods, variants and optional values | Selected subset verified on Windows x64 |
 | Reusable abstractions | Generic algorithms and data types with static constraints | Selected subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
-| Reusable libraries | Library/dependency workflows and useful standard facilities | Local packages, static/shared builds and the Phase 5 standard-library subset verified on Windows x64 in AOT/JIT with unoptimized and optimized output |
+| Reusable libraries | Library/dependency workflows and useful standard facilities | Selected subset verified on Windows x64 |
 | Windows host projects | Separate explicit host-target locks and build outputs | Windows x64 verified; Linux support removed |
-| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Phase 5 supported Windows subset verified in AOT/JIT, including independent file-processing and TCP/JSON programs, allocation failures, cleanup and selected native interfaces |
-| Concurrency | Safe threads, communication and native integration lifetimes | Phase 6 selected Windows scope verified: function references, owned workers, cooperative stop, shared/weak ownership, atomics with explicit ordering/fences, mutexes, reader/writer locks, bounded channels, scoped/retained callbacks, executable-lifetime safeguards and independent processing/native-event consumers at O0/O2 AOT/JIT |
-| Processing libraries | Selected reusable numerical and protocol components | Level, real and complex FIR, phase discrimination, bit packing, CRC, Hamming/Golay, and soft decisions verified on Windows x64 in AOT/JIT, with independent consumers. One same-machine baseline was recorded and is not the qualification. Performance campaigns remain planned |
-| General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Verified on Windows x64: three demonstration programs in AOT/JIT, formatter, language server, private VS Code integration and exercised tutorials; independent agent trials and a guided editor walkthrough by a person completed |
+| General-purpose standard library | Collections, UTF-8 text, formatting, bounded JSON, files, clocks and synchronous TCP | Selected Windows subset verified |
+| Concurrency | Safe threads, communication and native integration | Selected Windows scope verified |
+| Processing libraries | Selected reusable numerical and protocol components | Selected components verified on Windows x64; performance campaigns planned |
+| General usability | Developer tools, documentation and independent CLI, network-service and streaming demonstrations | Verified on Windows x64 |
 | Measured optimization | Improve demonstrated compiler, runtime and library bottlenecks | Planned; preserve correctness and safety checks |
 | Independent performance validation | Target runtime within 2.5% of each test's fastest qualifying competitor on this same machine | Planned; repeated local results determine acceptance, with other-machine results shown separately as references |
 

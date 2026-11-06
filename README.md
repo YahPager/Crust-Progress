@@ -10,144 +10,58 @@ with existing C, C++, and Rust libraries.
 
 This is the public development journal: what works, what has been checked, and
 what still needs work. **Windows x64 is the supported target.** Implementation
-remains private during development, and no compiler download is available yet.
+and detailed technical design remain private during development, and no
+compiler download is available yet.
 
 **Explore:** [Progress journal](PROGRESS.md) · [Roadmap](ROADMAP.md) ·
 [Measurements and limits](MEASUREMENTS.md)
 
 ## What works today
 
-- **Compile and run native programs.** Crust builds programs, static libraries
-  and Windows DLLs. Ahead-of-time compilation is the default; optional JIT
-  execution is also verified for selected programs and interfaces.
-- **Work with C, C++, and Rust in both directions.** Selected interfaces cover
-  scalar values, borrowed buffers, records and owned resources. All six call
-  directions have checks for results, errors and resource cleanup.
-- **Use owned data and reusable libraries.** Selected records, generics,
-  collections, UTF-8 text, formatting, JSON, files, clocks and synchronous TCP
-  have passed Windows checks, including failure paths and ownership rejection.
-- **Pass checked functions as values.** Selected named and stored function
-  references preserve signatures, ownership and returned-view lifetimes, with
-  explicit cloning and executable-lifetime checks in Windows AOT/JIT runs.
-- **Run owned work on threads.** Selected workers move owned data, return
-  values or errors, and cooperate with cancellation. Dropped handles stop and
-  join their workers; failure and exact cleanup checks pass in Windows AOT/JIT.
-- **Share owned data explicitly.** Selected shared and weak owners preserve
-  immutable access and checked lifetimes, including concurrent cloning,
-  expiration and final cleanup in Windows AOT/JIT checks.
-- **Use primitive atomic operations.** Selected boolean and integer operations
-  pass Windows AOT/JIT checks, including wrapping arithmetic, compare-exchange
-  and independent concurrent totals. Selected explicit orders and fences also pass.
-- **Protect shared values with mutexes.** Selected checked guards preserve
-  scoped access and deterministic cleanup, including worker contention,
-  acquisition failures and rejected guard/view escapes in Windows AOT/JIT.
-- **Read shared values concurrently.** Selected reader/writer locks permit
-  overlapping readers and exclusive writers, with protected views, failure
-  cleanup and rejected mutation through read guards in Windows AOT/JIT.
-- **Transfer owned values through bounded channels.** Selected communication
-  checks cover multiple producers and consumers, explicit outcomes, deadlines,
-  cancellation, disconnection and exact cleanup in Windows AOT/JIT.
-- **Use scoped native callbacks.** Selected C, C++, and Rust calls invoke typed
-  Crust callbacks on the calling thread with borrowed context, checked reentry,
-  error handling and deterministic cleanup in Windows AOT/JIT.
-- **Keep native callbacks registered safely.** Selected C, C++, and Rust
-  registrations own their context, support checked cleanup retries and drain
-  concurrent native calls before destruction in Windows AOT/JIT checks.
-- **Edit with tool support.** A formatter and a language server with a private
-  VS Code integration provide diagnostics, definition, completion and
-  formatting, verified on Windows x64.
+Verified on Windows x64 for selected subsets:
+
+- **Native programs and libraries:** ahead-of-time compilation by default, with
+  optional JIT execution.
+- **C, C++, and Rust interoperability** in both directions.
+- **Owned data and reusable libraries:** records, generics, collections, UTF-8
+  text, formatting, JSON, files, clocks and TCP.
+- **Concurrency:** threads, shared ownership, atomics, locks, channels and
+  native callbacks.
+- **Processing libraries:** filtering, phase discrimination and error-correcting
+  codes.
+- **Developer tools:** a formatter, a language server and editor integration.
 
 <p align="center">
   <img src="assets/progress/crust-native-interfaces.svg" alt="Selected interfaces verified on Windows x64: Crust calls C, C++ and Rust, and each calls Crust." width="720">
 </p>
 
-These results cover the subsets and environments recorded in the
-[progress journal](PROGRESS.md). They do not establish unrestricted library
-compatibility or a finished language.
+These results cover limited subsets and environments. They do not establish
+unrestricted library compatibility or a finished language.
 
-## Latest checked progress: general usability tools and demonstrations
+## Latest checked progress
 
-**November 1, 2026 — developer tools and three demonstration programs pass Windows x64 checks.**
-
-A file-summary command, a bounded local TCP/JSON service and a worker-thread
-streaming pipeline pass unoptimized and optimized AOT/JIT checks. The checks
-include failure injection and exact cleanup. A formatter, a language server
-with a private VS Code integration, and exercised tutorials are in place.
-Independent agent trials completed builds and changes from the documentation
-alone, and a guided editor walkthrough by a person passed.
-
-The receiver rebuild, performance qualification and public release remain
-separate future steps.
-
-[Read the milestone and its scope →](PROGRESS.md#november-1-2026---general-usability-tools-and-demonstrations-verified)
-
-## What is happening now
-
-**November 5, 2026 — prepared Windows playback checks passed.**
-
-Offline synthetic reception has passed its recorded checks, including voice
-admission, Phase 1 and Phase 2 framing, three declared demodulation rows and
-file replay to WAV. Airspy setup and capture have passed with a stand-in
-device. No radio has been connected.
-
-Crust now prepares audio for one explicit Windows playback format. Focused
-conversion checks and one real-endpoint consumption check passed on the
-development machine, and the full unoptimized and optimized regression passed
-with them. Consumption is taken from the device clock. The receiver is not
-connected to the speaker. Playback does not establish intelligible speech, a
-locked signal or a measured physical sample rate.
-
-[Read the current status →](PROGRESS.md#november-5-2026---sdrtw-v3-prepared-playback-checks-passed)
+**November 5, 2026:** SDR: The Works v3 prepared playback checks passed.
+See the [progress journal](PROGRESS.md) for dated milestones.
 
 ## What's next
 
-Performance qualification and a public release remain separate later steps.
-Live radio hardware has not started. See the
-[roadmap](ROADMAP.md#general-purpose-language-growth). No release date is
-announced.
+Performance work continues. Live radio hardware has not started, and a public
+release remains a separate later step. See the [roadmap](ROADMAP.md). No
+release date is announced.
 
 ## SDR: The Works v3
 
-One early proof exercised a bounded offline P25 Phase 2 framing slice with
-synthetic inputs. Selected Windows runs checked orchestration, validation,
-reset, event routing and native-library cleanup.
-
-The separate v3 application has continued since that proof. Features are
-implemented in Crust wherever practical, with minimal third-party
-dependencies. Existing integrations remain until a replacement has its own
-checks. Crust's general-purpose development and public readiness stay
-independent of the receiver.
-
-The offline checks use synthetic inputs. They do not establish field voice or
-security correctness. Live hardware, a complete receiver and host
-compatibility remain unverified.
-
-[Read the current application status →](PROGRESS.md#november-5-2026---sdrtw-v3-prepared-playback-checks-passed)
-· [Read the original offline proof →](PROGRESS.md#october-28-2026---sdrtw-offline-framing-times-and-memory)
+A separate radio application being built with Crust on Windows x64. Offline
+checks with synthetic inputs have passed. Live hardware, a complete receiver
+and field voice or security correctness remain unverified. Crust's
+general-purpose development stays independent of the receiver.
 
 ## Measured comparisons across languages
 
-The published benchmark results are mixed. Several workloads remain behind C;
-the audio-routing comparisons use different settings and older control runs.
-They do not establish a general language-wide speed or memory advantage.
-
-The original tables, measurement boundaries and caveats are preserved in
-[Measurements](MEASUREMENTS.md). The separate
-[AOT/JIT comparison](JIT-COMPARISON.md) records its own results and limits.
-
-## A look inside the first week
-
-<details>
-<summary>View the compiler CodeGraph snapshot</summary>
-
-Captured October 29, 2026: **18 source files, 2,689 nodes and 3,978 indexed
-relationships**. This compiler-only snapshot excludes the SDRTW proof,
-experiments and external fixtures. It shows structure at that checkpoint,
-rather than runtime behavior or the compiler's current size.
-
-![First-week CodeGraph snapshot of the Crust compiler and build driver](assets/progress/crust-first-week-codegraph-2026-10-29.png)
-
-</details>
+The published benchmark results are mixed. Several workloads remain behind C.
+They do not establish a general language-wide speed or memory advantage. See
+[Measurements](MEASUREMENTS.md) and the separate
+[AOT/JIT comparison](JIT-COMPARISON.md).
 
 ## Follow the development
 
@@ -163,6 +77,4 @@ Star this repository to keep it handy, follow
 | What changed with optional JIT execution? | [AOT/JIT comparison](JIT-COMPARISON.md) |
 
 Source, detailed specifications, internal development records and binaries
-remain private. Earlier Fedora results in the journal are historical: Linux
-support was withdrawn on October 31, 2026. New updates distinguish planned,
-implemented and verified work.
+remain private.
